@@ -29,7 +29,7 @@ class CardWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Image.network(imageUrl),
+          // Image.asset(imageUrl),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(

@@ -9,22 +9,24 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:recrutterapp/main.dart';
+import 'package:recrutterapp/screens/StartWidget.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const Main());
+  testWidgets('Main widget test', (WidgetTester tester) async {
+    // Собираем виджет Main
+    await tester.pumpWidget(
+      MaterialApp(
+        home: Main(),
+      ),
+    );
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+    // Проверяем наличие AppBar с заданными свойствами
+    expect(find.byType(AppBar), findsOneWidget);
+    expect(find.text('RECRUITER APP'), findsOneWidget);
+    final appBar = tester.widget<AppBar>(find.byType(AppBar));
+    expect(appBar.backgroundColor, const Color.fromRGBO(255, 205, 176, 100));
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
-
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+    // Проверяем наличие StartWidget
+    expect(find.byType(StartWidget), findsOneWidget);
   });
 }

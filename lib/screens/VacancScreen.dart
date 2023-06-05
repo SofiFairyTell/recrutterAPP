@@ -15,27 +15,27 @@ class VacancScreen extends StatelessWidget {
     CardData(
       title: 'Бизнес-аналитик',
       description: 'Количество требуемых специалистовв. Требования. Тестовое',
-      imageUrl: 'assets/images/image1.jpg',
+      imageUrl: 'assets/icons/hr.png',
     ),
     CardData(
       title: 'Jun-DEV',
       description: 'Количество требуемых специалистовв. Требования. Тестовое',
-      imageUrl: 'assets/images/image2.jpg',
+      imageUrl: 'assets/icons/hr.png',
     ),
     CardData(
       title: 'Senior-DEV',
       description: 'Количество требуемых специалистовв. Требования. Тестовое',
-      imageUrl: 'assets/images/image3.jpg',
+      imageUrl: 'assets/icons/hr.png',
     ),
     CardData(
       title: 'Архитектор',
       description: 'Количество требуемых специалистовв. Требования. Тестовое',
-      imageUrl: 'assets/images/image3.jpg',
+      imageUrl: 'assets/icons/hr.png',
     ),
     CardData(
       title: 'Тестировщик',
       description: 'Количество требуемых специалистовв. Требования. Тестовое',
-      imageUrl: 'assets/images/image3.jpg',
+      imageUrl: 'assets/icons/hr.png',
     ),
   ];
 
@@ -50,7 +50,7 @@ class VacancScreen extends StatelessWidget {
           child: Column(
             children: [
               // Виджет 1 - ссылка на заглушку виджета с редактированием текущего экрана
-              buildCustomAppBarWithActions(),
+              // buildCustomAppBarWithActions(),
               // Виджет 2 - область для листа из виджетов
               buildMultipleCardWidgets(cardDataList),
             ],

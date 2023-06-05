@@ -32,7 +32,7 @@ class Main extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: const Text('RECRUTER APP'),
+        title: const Text('RECRUITER APP'),
         backgroundColor: const Color.fromRGBO(255, 205, 176, 100),
       ),
       //backgroundColor: Colors.greenAccent,
