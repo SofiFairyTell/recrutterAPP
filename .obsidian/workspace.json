@@ -1,0 +1,159 @@
+{
+  "main": {
+    "id": "5567245b16e79398",
+    "type": "split",
+    "children": [
+      {
+        "id": "f399a29f093a1400",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "c9dd4c89b7902df0",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "05191da557f186e7",
+    "type": "split",
+    "children": [
+      {
+        "id": "5cfbdeb9a624b173",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "7e34ccef5e0e8d8c",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "fa45a5df36726945",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "8b8193fd8594cd18",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "c6d230b6765d55b2",
+    "type": "split",
+    "children": [
+      {
+        "id": "4a542c0865197919",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f007a7e41bd08bfd",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "README.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "eeeed838d9925a55",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "README.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "3bcb37e2c73552a4",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "5c47d3c2969aa90d",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "README.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Меню быстрого перехода": false,
+      "graph:Граф": false,
+      "canvas:Создать новый холст": false,
+      "daily-notes:Сегодняшняя заметка": false,
+      "templates:Вставить шаблон": false,
+      "command-palette:Открыть палитру команд": false
+    }
+  },
+  "active": "c9dd4c89b7902df0",
+  "lastOpenFiles": [
+    "demo/sidebar.png",
+    "README.md",
+    "recrutterAPP/demo/sidebar.png.md",
+    "recrutterAPP/demo",
+    "recrutterAPP",
+    "demo/mainpanel.png",
+    "demo/adminpanel.png"
+  ]
+}
