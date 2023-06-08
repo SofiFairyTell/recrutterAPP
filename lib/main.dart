@@ -6,10 +6,16 @@ import 'package:recrutterapp/screens/SignUpScreen.dart';
 import 'package:recrutterapp/screens/SettingWidget.dart';
 import 'package:recrutterapp/screens/StartWidget.dart';
 import 'package:recrutterapp/screens/VacancScreen.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
 
 //Выполнение приложений на Flutter начинается с функции Main
 
-void main() {
+void main()  async {
+    WidgetsFlutterBinding.ensureInitialized();
+    await Firebase.initializeApp(
+      options: DefaultFirebaseOptions.currentPlatform,
+    );
   runApp(MaterialApp(
     initialRoute: '/',
     routes: {
@@ -18,7 +24,7 @@ void main() {
       '/signup': (context) =>  SignUpScreen(key: null,),
       '/profile': (context) =>  ProfileScreen(),
       '/vac':(context) => VacancScreen(key: null,),
-      '/candidats':(context) => CandidatScreen(),
+      '/candidates':(context) => CandidatScreen(),
     },
   ));
 }
