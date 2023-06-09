@@ -19,11 +19,27 @@ class _SignUpScreen extends State<SignUpScreen> {
   TextEditingController nameController = TextEditingController();
 
   final formKey = GlobalKey<FormState>();
+  @override
+  void dispose() {
+    emailController.dispose();
+    passwordController.dispose();
+    nameController.dispose();
+    super.dispose();
+  }
+
+  void togglePasswordView() {
+    setState(() {
+      isHiddenPassword = !isHiddenPassword;
+    });
+  }
+
 
   Future<void> signUp() async {
     final navigator = Navigator.of(context);
     final isValid = formKey.currentState!.validate();
-    if (!isValid) return;
+    if (!isValid) {
+      return;
+    }
     try {
       await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text.trim(),
@@ -52,19 +68,7 @@ class _SignUpScreen extends State<SignUpScreen> {
     navigator.pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
   }
 
-  @override
-  void dispose() {
-    emailController.dispose();
-    passwordController.dispose();
-    nameController.dispose();
-    super.dispose();
-  }
 
-  void togglePasswordView() {
-    setState(() {
-      isHiddenPassword = !isHiddenPassword;
-    });
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -72,6 +76,7 @@ class _SignUpScreen extends State<SignUpScreen> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
+          key: formKey,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             // PhotoWidget
