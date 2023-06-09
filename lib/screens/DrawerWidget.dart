@@ -76,7 +76,7 @@ class DrawerWidget extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.logout),
             title: Text('Выход'),
-            onTap: () => goToScreen(context,'/')),
+            onTap: () => goToScreen(context,'/home')),
         ],
       ),
     );

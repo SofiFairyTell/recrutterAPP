@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recrutterapp/bloc/jobs/firebase_stream.dart';
 import 'package:recrutterapp/screens/CandidatScreen.dart';
 import 'package:recrutterapp/screens/ProfileScreen.dart';
 import 'package:recrutterapp/screens/SignUpScreen.dart';
@@ -18,7 +19,8 @@ void main()  async {
   runApp(MaterialApp(
     initialRoute: '/',
     routes: {
-      '/': (context) => const Main(),
+      '/': (context) => FirebaseStream(),
+      '/home': (context) => const Main(),
       '/settings': (context) => SettingsWidget(),
       '/signup': (context) =>  SignUpScreen(key: null,),
       '/profile': (context) =>  ProfileScreen(),
