@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:recrutterapp/screens/ProfileScreen.dart';
 import 'package:recrutterapp/screens/SignUpScreen.dart';
 
@@ -7,6 +8,8 @@ class StartWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final user = FirebaseAuth.instance.currentUser;
+
     return Scaffold(
       body: Center(
         child: Column(
@@ -30,7 +33,16 @@ class StartWidget extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ButtonWidget(text: 'Регистрация',onPressed: () { goToRegistration(context);}),
+                ButtonWidget(text: 'Регистрация',onPressed: () {
+                  if ((user == null))
+                    {
+                      goToRegistration(context);
+                    }
+                  else
+                    {
+                      goToProfileWidget(context);
+                    }
+                }),
                 const SizedBox(width: 20),
                 ButtonWidget(text: 'Вход',onPressed: () {goToProfileWidget(context);}),
               ],
