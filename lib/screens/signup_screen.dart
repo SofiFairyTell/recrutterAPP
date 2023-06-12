@@ -33,7 +33,9 @@ class _SignUpScreen extends State<SignUpScreen> {
     });
   }
 
-
+/**
+ * @return к экрану с вводом пароля или панели пользователя
+ * */
   Future<void> signUp() async {
     final navigator = Navigator.of(context);
 
