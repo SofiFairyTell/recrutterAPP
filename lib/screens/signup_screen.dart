@@ -2,6 +2,7 @@ import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:recrutterapp/bloc/jobs/snack_bar.dart';
 import 'package:recrutterapp/screens/Widgets/photo_widget.dart';
 // import 'package:firebase_storage/firebase_storage.dart';
 
@@ -60,11 +61,11 @@ class _SignUpScreen extends State<SignUpScreen> {
         // );
         return;
       } else {
-        // SnackBarService.showSnackBar(
-        //   context,
-        //   'Неизвестная ошибка! Попробуйте еще раз или обратитесь в поддержку.',
-        //   true,
-        // );
+        SnackBarService.showSnackBar(
+          context,
+          'Неизвестная ошибка! Попробуйте еще раз или обратитесь в поддержку.',
+          true,
+        );
         return;
       }
     }
