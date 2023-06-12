@@ -11,13 +11,15 @@ class CardData {
 class CardWidget extends StatelessWidget {
   final String title;
   final String description;
-  final String imageUrl;
+  final String? imageUrl;
+  final void Function()? onPressed;
 
   const CardWidget({
     Key? key,
     required this.title,
     required this.description,
-    required this.imageUrl,
+    this.imageUrl,
+    this.onPressed,
   }) : super(key: key);
 
 
@@ -25,10 +27,13 @@ class CardWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+
       color: Color(0xFFB9C2D7),
       child: Column(
+
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+
           // Image.asset(imageUrl),
           Padding(
             padding: const EdgeInsets.all(8.0),

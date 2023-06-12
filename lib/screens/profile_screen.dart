@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'DrawerWidget.dart';
-import 'Widgets/CustomButton.dart';
+import 'package:recrutterapp/screens/Widgets/card_widget.dart';
+import 'drawer_widget.dart';
+import 'Widgets/custom_button.dart';
 import 'Widgets/AppBarCustom.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -32,7 +33,7 @@ class ProfileScreen extends StatelessWidget {
                       CustomButton(
                         firstText: 'Кандидаты',
                         secondText:'Подходящие участники команд',
-                        onPressed: () => Navigator.pushNamed(context,'/candidats'), key: null,
+                        onPressed: () => Navigator.pushNamed(context,'/candidates'), key: null,
                       ),
                     ],
                   ),
