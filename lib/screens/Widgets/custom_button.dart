@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
       height: 150,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          primary:Color.fromRGBO(193, 200, 219, 100)
+          backgroundColor: Color.fromRGBO(193, 200, 219, 100)
         ),
         onPressed: onPressed,
         child: Column(

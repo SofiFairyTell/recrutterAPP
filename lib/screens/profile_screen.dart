@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'DrawerWidget.dart';
-import 'Widgets/CustomButton.dart';
+import 'drawer_widget.dart';
+import 'Widgets/custom_button.dart';
 import 'Widgets/AppBarCustom.dart';
 
 class ProfileScreen extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:recrutterapp/screens/ProfileScreen.dart';
-import 'package:recrutterapp/screens/SignUpScreen.dart';
+import 'package:recrutterapp/screens/profile_screen.dart';
+import 'package:recrutterapp/screens/signup_screen.dart';
 
 class StartWidget extends StatelessWidget {
   const StartWidget({required Key? key}) : super(key: key);
@@ -15,17 +15,19 @@ class StartWidget extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Container(
-              width: 150,
-              height: 300,
-              decoration: const BoxDecoration(
-                shape: BoxShape.rectangle,
-                borderRadius: BorderRadius.vertical(
-                  bottom: Radius.elliptical(100, 30),
-                ),
-                image: DecorationImage(
-                  image: AssetImage('assets/images/startlogo.jpg'),
-                  fit: BoxFit.cover,
+            Expanded(
+              child: Container(
+                width: 150,
+                height: 300,
+                decoration: const BoxDecoration(
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.vertical(
+                    bottom: Radius.elliptical(100, 30),
+                  ),
+                  image: DecorationImage(
+                    image: AssetImage('assets/images/startlogo.jpg'),
+                    fit: BoxFit.cover,
+                  ),
                 ),
               ),
             ),
@@ -33,18 +35,21 @@ class StartWidget extends StatelessWidget {
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                ButtonWidget(text: 'Регистрация',onPressed: () {
-                  if ((user == null))
-                    {
-                      goToRegistration(context);
-                    }
-                  else
-                    {
-                      goToProfileWidget(context);
-                    }
-                }),
+                ButtonWidget(
+                    text: 'Регистрация',
+                    onPressed: () {
+                      if ((user == null)) {
+                        goToRegistration(context);
+                      } else {
+                        goToProfileWidget(context);
+                      }
+                    }),
                 const SizedBox(width: 20),
-                ButtonWidget(text: 'Вход',onPressed: () {goToProfileWidget(context);}),
+                ButtonWidget(
+                    text: 'Вход',
+                    onPressed: () {
+                      goToProfileWidget(context);
+                    }),
               ],
             ),
           ],
@@ -53,7 +58,6 @@ class StartWidget extends StatelessWidget {
     );
   }
 }
-
 
 class ButtonWidget extends StatelessWidget {
   final String text;
@@ -77,13 +81,13 @@ class ButtonWidget extends StatelessWidget {
   }
 }
 
-
-
 void goToRegistration(BuildContext context) {
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => SignUpScreen(key: null,),
+      builder: (context) => SignUpScreen(
+        key: null,
+      ),
     ),
   );
 }

@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:recrutterapp/screens/ProfileScreen.dart';
+import 'package:recrutterapp/screens/profile_screen.dart';
 // import 'package:recrutterapp/screens/verify_email_screen.dart';
 
 class FirebaseStream extends StatelessWidget {

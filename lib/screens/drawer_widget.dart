@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recrutterapp/screens/VacancScreen.dart';
+import 'package:recrutterapp/screens/vacanc_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
   @override

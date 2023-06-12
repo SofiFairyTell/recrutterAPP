@@ -2,11 +2,11 @@ import 'package:email_validator/email_validator.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:recrutterapp/screens/Widgets/PhotoWidget.dart';
+import 'package:recrutterapp/screens/Widgets/photo_widget.dart';
 // import 'package:firebase_storage/firebase_storage.dart';
 
 class SignUpScreen extends StatefulWidget {
-  const SignUpScreen({required Key? key}) : super(key: key);
+  const SignUpScreen({super.key});
 
   @override
   State<SignUpScreen> createState() => _SignUpScreen();
@@ -36,6 +36,7 @@ class _SignUpScreen extends State<SignUpScreen> {
 
   Future<void> signUp() async {
     final navigator = Navigator.of(context);
+
     final isValid = formKey.currentState!.validate();
     if (!isValid) {
       return;
@@ -65,7 +66,7 @@ class _SignUpScreen extends State<SignUpScreen> {
         return;
       }
     }
-    navigator.pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
+    navigator.pushNamedAndRemoveUntil('/profile', (Route<dynamic> route) => false);
   }
 
 
@@ -76,77 +77,85 @@ class _SignUpScreen extends State<SignUpScreen> {
       backgroundColor: Colors.white,
       body: SafeArea(
         child: Column(
-          key: formKey,
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             // PhotoWidget
             Center(
               child: PhotoWidget(
                 photoUrl: 'assets/images/owl.jpg',
-                onPressed: () => print('Photo was tapped'),
+                onPressed: () {
+                  print('Photo was tapped');
+                },
               ),
             ),
 
             // Full name text field
             SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: TextField(
-                decoration: InputDecoration(
-                  labelText: 'ФИО',
-                  prefixIcon: Icon(Icons.person),
-                ),
-                controller: nameController,
-              ),
-            ),
-
-            // Email text field
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: TextFormField(
-                keyboardType: TextInputType.emailAddress,
-                autocorrect: false,
-                decoration: InputDecoration(
-                  labelText: 'EMAIL',
-                  prefixIcon: Icon(Icons.email),
-                ),
-                controller: emailController,
-                validator: (email) =>
-                email != null && !EmailValidator.validate(email)
-                    ? 'Введите правильный Email'
-                    : null,
-              ),
-            ),
-
-            // Password text field
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              child: TextFormField(
-                autocorrect: false,
-                decoration: InputDecoration(
-                  labelText: 'Пароль',
-                  prefixIcon: Icon(Icons.lock),
-                  suffix: InkWell(
-                    onTap: togglePasswordView,
-                    child: Icon(
-                      isHiddenPassword
-                          ? Icons.visibility_off
-                          : Icons.visibility,
-                      color: Colors.black,
+            Form(
+              key: formKey,
+              child: Column(
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      labelText: 'ФИО',
+                      prefixIcon: Icon(Icons.person),
                     ),
+                    controller: nameController,
                   ),
                 ),
-                controller: passwordController,
-                obscureText: isHiddenPassword,
-                validator: (value) => value != null && value.length < 6
-                    ? 'Минимум 6 символов'
-                    : null,
-                autovalidateMode: AutovalidateMode.onUserInteraction,
 
-              ),
-            ),
+                // Email text field
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: TextFormField(
+                    keyboardType: TextInputType.emailAddress,
+                    autocorrect: false,
+                    decoration: InputDecoration(
+                      labelText: 'EMAIL',
+                      prefixIcon: Icon(Icons.email),
+                    ),
+                    controller:emailController,
+                    validator: (email) =>
+                    email != null && !EmailValidator.validate(email)
+                        ? 'Введите правильный Email'
+                        : null,
+                  ),
+                ),
+
+                // Password text field
+                SizedBox(height: 20),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 16),
+                  child: TextFormField(
+                    autocorrect: false,
+                    decoration: InputDecoration(
+                      labelText: 'Пароль',
+                      prefixIcon: Icon(Icons.lock),
+                      suffix: InkWell(
+                        onTap: togglePasswordView,
+                        child: Icon(
+                          isHiddenPassword
+                              ? Icons.visibility_off
+                              : Icons.visibility,
+                          color: Colors.black,
+                        ),
+                      ),
+                    ),
+                    controller: passwordController,
+                    obscureText: isHiddenPassword,
+                    validator: (value) => value != null && value.length < 6
+                        ? 'Минимум 6 символов'
+                        : null,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+
+                  ),
+                ),
+              ],
+            ),),
+
 
             // Register button
             SizedBox(height: 20),
