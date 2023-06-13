@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 import 'package:recrutterapp/main.dart';
-import 'package:recrutterapp/screens/start_widget.dart';
+import 'package:recrutterapp/screens/start_screen.dart';
 
 void main() {
   testWidgets('Main widget test', (WidgetTester tester) async {
@@ -27,6 +27,6 @@ void main() {
     expect(appBar.backgroundColor, const Color.fromRGBO(255, 205, 176, 100));
 
     // Проверяем наличие StartWidget
-    expect(find.byType(StartWidget), findsOneWidget);
+    expect(find.byType(StartScreen), findsOneWidget);
   });
 }

@@ -3,8 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:recrutterapp/screens/profile_screen.dart';
 import 'package:recrutterapp/screens/signup_screen.dart';
 
-class StartWidget extends StatelessWidget {
-  const StartWidget({required Key? key}) : super(key: key);
+class StartScreen extends StatelessWidget {
+  const StartScreen({required Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

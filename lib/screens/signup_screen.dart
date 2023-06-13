@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:recrutterapp/bloc/jobs/snack_bar.dart';
-import 'package:recrutterapp/screens/Widgets/photo_widget.dart';
+import '../widgets/photo_widget.dart';
 // import 'package:firebase_storage/firebase_storage.dart';
 
 class SignUpScreen extends StatefulWidget {
