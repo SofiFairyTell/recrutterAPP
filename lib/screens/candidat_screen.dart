@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../widgets/drawer_widget.dart';
 
 import '../widgets/AppBarCustom.dart';
+import '../widgets/actions_button.dart';
 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -21,9 +22,7 @@ class CandidatScreen extends StatelessWidget {
           child: Column(
             children: [
               // Виджет 1 - ссылка на заглушку виджета с редактированием текущего экрана
-              Placeholder(
-                fallbackHeight: 100,
-              ),
+              ActionsButtons(),
 
               // Виджет 2 - область для листа из виджетов
               ListView.builder(
