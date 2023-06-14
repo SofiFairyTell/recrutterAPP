@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-import 'drawer_widget.dart';
-import 'Widgets/AppBarCustom.dart';
+import '../widgets/drawer_widget.dart';
+import '../widgets/AppBarCustom.dart';
 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-class SettingsWidget extends StatelessWidget {
-   SettingsWidget({Key? key}) : super(key: key);
+class SettingsScreen extends StatelessWidget {
+  SettingsScreen({Key? key}) : super(key: key);
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override

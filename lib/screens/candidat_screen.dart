@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'drawer_widget.dart';
+import '../widgets/drawer_widget.dart';
 
-import 'Widgets/AppBarCustom.dart';
+import '../widgets/AppBarCustom.dart';
 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 

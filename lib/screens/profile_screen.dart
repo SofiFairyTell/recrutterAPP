@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:recrutterapp/screens/Widgets/card_widget.dart';
-import 'drawer_widget.dart';
-import 'Widgets/custom_button.dart';
-import 'Widgets/AppBarCustom.dart';
+import '../widgets/drawer_widget.dart';
+import '../widgets/custom_button.dart';
+import '../widgets/AppBarCustom.dart';
 
 class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key? key}) : super(key: key);
