@@ -49,7 +49,6 @@
 
 Изображения экранов:
 
-
-![SideBar](/demo/sidebar.png "sidebar")
-![Adminpanel](/demo/adminpanel.png "adminpanel")
-![SideBar](/demo/mainpanel.png "mainpanel")
+<img src = '/demo/sidebar.png' width = '300' alt = 'sidebar'>
+<img src = '/demo/adminpanel.png' width = '300' alt = 'adminpanel'>
+<img src = 'demo/mainpanel.png' width = '300' alt = 'mainpanel'>
