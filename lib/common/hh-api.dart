@@ -36,5 +36,8 @@ class HeadHunterApi{
     return cardsData;
   }
 
-  Future<List<Map<String,dynamic>>> get
+  Future<List<Map<String,dynamic>>> getResume(String text) async{
+    final cardsData = <Map<String, dynamic>>[];
+    return cardsData;
+  }
 }

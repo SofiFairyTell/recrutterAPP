@@ -5,8 +5,8 @@ import 'package:recrutterapp/widgets/AppBarCustom.dart';
 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-class SettingsScreen extends StatelessWidget {
-  SettingsScreen({Key? key}) : super(key: key);
+class ChartScreen extends StatelessWidget {
+  ChartScreen({Key? key}) : super(key: key);
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override

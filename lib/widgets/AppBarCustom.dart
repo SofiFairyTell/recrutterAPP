@@ -20,6 +20,14 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
           }
         },
       ),
+      actions: [
+        IconButton(
+          icon: Icon(Icons.logout),
+          onPressed: () {
+            // Действия при нажатии на иконку добавления
+          },
+        ),
+      ],
     );
   }
 

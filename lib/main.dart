@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:recrutterapp/bloc/jobs/firebase_stream.dart';
 import 'package:recrutterapp/screens/candidat_screen.dart';
+import 'package:recrutterapp/screens/modul_analysis/chart_screen.dart';
 import 'package:recrutterapp/screens/profile_screen.dart';
 import 'package:recrutterapp/screens/signup_screen.dart';
 import 'package:recrutterapp/screens/setting_screen.dart';
@@ -26,6 +27,7 @@ void main()  async {
       '/profile': (context) =>  ProfileScreen(),
       '/vac':(context) => VacancScreen(key: null,),
       '/candidates':(context) => CandidatScreen(),
+      '/chart':(context) => ChartScreen(),
     },
   ));
 }
