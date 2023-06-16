@@ -35,4 +35,6 @@ class HeadHunterApi{
 
     return cardsData;
   }
+
+  Future<List<Map<String,dynamic>>> get
 }
