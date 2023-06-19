@@ -3,6 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:recrutterapp/bloc/jobs/snack_bar.dart';
+import 'package:recrutterapp/model/user.dart';
+import 'package:recrutterapp/screens/profile_screen.dart';
 import '../widgets/photo_widget.dart';
 // import 'package:firebase_storage/firebase_storage.dart';
 
@@ -69,9 +71,11 @@ class _SignUpScreen extends State<SignUpScreen> {
         return;
       }
     }
-    navigator.pushNamedAndRemoveUntil('/profile', (Route<dynamic> route) => false);
-  }
+    final user = FirebaseAuth.instance.currentUser;
+    UserData userData = UserData(name: user?.displayName, email: user?.email, id: user?.uid);
 
+    navigator.pushNamedAndRemoveUntil('/profile', (Route<dynamic> route) => false, arguments: userData);
+  }
 
 
   @override

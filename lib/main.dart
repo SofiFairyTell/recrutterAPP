@@ -20,6 +20,7 @@ void main()  async {
   runApp(MaterialApp(
     initialRoute: '/',
     routes: {
+
       '/': (context) => FirebaseStream(),
       '/home': (context) => const Main(),
       '/settings': (context) => SettingsScreen(),

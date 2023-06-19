@@ -1,9 +1,11 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   final GlobalKey<ScaffoldState> scaffoldKey;
+  late final user = FirebaseAuth.instance.currentUser;
 
-  const AppBarCustom({required Key? key, required this.scaffoldKey}) : super(key: key);
+  AppBarCustom({required Key? key, required this.scaffoldKey}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,13 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
         IconButton(
           icon: Icon(Icons.logout),
           onPressed: () {
-            // Действия при нажатии на иконку добавления
+            if(user != null)
+              {
+              // Выполнить logout для пользователя
+              FirebaseAuth.instance.signOut();
+              }
+            Navigator.pushNamed(context, '/home');
+
           },
         ),
       ],

@@ -1,11 +1,11 @@
-class User{
-  int? id;
-  String name;
+class UserData{
+  String? id;
+  String? name;
   String? email;
   String? phone;
   String? data;
 
-  User({
+  UserData({
     required this.id,
     required this.name,
     this.email,
@@ -13,8 +13,8 @@ class User{
   });
 
 
-  factory User.fromJson(Map<String, dynamic> json) {
-    return User(
+  factory UserData.fromJson(Map<String, dynamic> json) {
+    return UserData(
       id: json['id'],
       name: json['name'],
       email: json['email'] ?? '',
