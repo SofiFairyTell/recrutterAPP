@@ -15,7 +15,7 @@ void main() {
   testWidgets('Main widget test', (WidgetTester tester) async {
     // Собираем виджет Main
     await tester.pumpWidget(
-      MaterialApp(
+      const MaterialApp(
         home: Main(),
       ),
     );
