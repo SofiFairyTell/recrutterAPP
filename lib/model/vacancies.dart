@@ -17,5 +17,4 @@ class Vacancies
   String? initial_created_at;
   String? published_at;
 
-
 }

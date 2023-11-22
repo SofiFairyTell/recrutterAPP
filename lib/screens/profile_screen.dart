@@ -45,13 +45,13 @@ class ProfileScreen extends StatelessWidget {
                       CustomButton(
                         firstText: 'Аналитика',
                         secondText:'Выполните подбор проектной команды',
-                        onPressed: () => print('Pressed Аналитика'), key: null,
+                        onPressed: () => Navigator.pushNamed(context,'/chart'), key: null,
                       ),
                       const SizedBox(width: 10),
                       CustomButton(
                         firstText: 'Чаты',
                         secondText:'Общайтесь с проектной командой',
-                        onPressed: () => print('Pressed Чаты'), key: null,
+                        onPressed: () => Navigator.pushNamed(context,'/chats'), key: null,
                       ),
                     ],
                   ),

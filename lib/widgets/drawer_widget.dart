@@ -1,9 +1,20 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:recrutterapp/model/user.dart';
 import 'package:recrutterapp/screens/vacanc_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
+  late final UserData userData = UserData(id: 'uidy1', name: 'Ярослава К', email:'example@mail.com' );
+
+
   @override
   Widget build(BuildContext context) {
+    RouteSettings settings = ModalRoute.of(context)!.settings;
+    if (settings.arguments != null) {
+      late final UserData userData2;
+      userData == settings.arguments as UserData;
+    }
+
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,
@@ -15,8 +26,10 @@ class DrawerWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('Ярослава К', style: TextStyle(fontSize: 16)),
-                    Text('example@mail.com', style: TextStyle(fontSize: 12)),
+                    Text('${this.userData.name}',style: TextStyle(fontSize: 16)),
+                    Text('${this.userData.email}',style: TextStyle(fontSize: 12)),
+                    // Text('Ярослава К', style: TextStyle(fontSize: 16)),
+                    // Text('example@mail.com', style: TextStyle(fontSize: 12)),
                     Text('Фехтование.Дизайн. Маркетинг.HR', style: TextStyle(fontSize: 12)),
                   ],
                 ),
