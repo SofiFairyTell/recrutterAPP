@@ -20,9 +20,12 @@ void main()  async {
   runApp(MaterialApp(
     initialRoute: '/',
     routes: {
+  ///Цепочка регистрации отключена
+      ///до тех пор пока не удастся подключить интернет на эмуляторе
 
-      '/': (context) => FirebaseStream(),
-      '/home': (context) => const Main(),
+      // '/': (context) => FirebaseStream(),
+      '/': (context) => const Main(),
+      // '/home': (context) => const Main(),
       '/settings': (context) => SettingsScreen(),
       '/signup': (context) =>  SignUpScreen(key: null,),
       '/profile': (context) =>  ProfileScreen(),

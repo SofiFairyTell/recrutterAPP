@@ -4,15 +4,17 @@ import 'package:recrutterapp/model/user.dart';
 import 'package:recrutterapp/screens/vacanc_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
-  late final UserData userData;
+  late final UserData userData = UserData(id: 'uidy1', name: 'Ярослава К', email:'example@mail.com' );
 
 
   @override
   Widget build(BuildContext context) {
     RouteSettings settings = ModalRoute.of(context)!.settings;
     if (settings.arguments != null) {
-      userData = settings.arguments as UserData;
+      late final UserData userData2;
+      userData == settings.arguments as UserData;
     }
+
     return Drawer(
       child: ListView(
         padding: EdgeInsets.zero,

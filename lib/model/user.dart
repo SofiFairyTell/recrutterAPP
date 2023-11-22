@@ -21,4 +21,5 @@ class UserData{
       phone: json['phone'] ?? '',
     );
   }
+
 }

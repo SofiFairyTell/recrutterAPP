@@ -31,7 +31,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
               // Выполнить logout для пользователя
               FirebaseAuth.instance.signOut();
               }
-            Navigator.pushNamed(context, '/home');
+            Navigator.pushNamed(context, '/');
 
           },
         ),
