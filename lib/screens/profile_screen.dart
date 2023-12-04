@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import '../common/Redmine-api.dart';
+import '../model/Redmine/Issue.dart';
 import '../widgets/drawer_widget.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/AppBarCustom.dart';
@@ -7,6 +9,9 @@ class ProfileScreen extends StatelessWidget {
   ProfileScreen({Key? key}) : super(key: key);
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
+
+  final String baseUrl = 'https://dev.sciener.ru';
+  final String baseKey = 'de1b88738e2a19ec994caf6f88d4581d6edd16bb';
 
   @override
   Widget build(BuildContext context) {
@@ -56,7 +61,26 @@ class ProfileScreen extends StatelessWidget {
                     ],
                   ),
                 ),
-
+                Expanded(
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      CustomButton(
+                        firstText: 'Проекты',
+                        secondText:'А что по проектам?',
+                        onPressed:() async {
+                          try {
+                            List<Issue> issues = await RedmineApi.getIssues(baseKey,baseUrl);
+                            print(issues.length);
+                          } catch (e) {
+                            print('Error: $e');
+                          }
+                        }, key: null,
+                      ),
+                      const SizedBox(width: 10),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),

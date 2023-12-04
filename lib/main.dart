@@ -7,6 +7,7 @@ import 'package:recrutterapp/screens/signup_screen.dart';
 import 'package:recrutterapp/screens/setting_screen.dart';
 import 'package:recrutterapp/screens/start_screen.dart';
 import 'package:recrutterapp/screens/vacanc_screen.dart';
+import 'package:recrutterapp/screens/project_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
 
@@ -32,6 +33,7 @@ void main()  async {
       '/vac':(context) => VacancScreen(key: null,),
       '/candidates':(context) => CandidatScreen(),
       '/chart':(context) => ChartScreen(),
+      '/projects':(context) => ProjectsScreen(key: null,),
     },
   ));
 }
