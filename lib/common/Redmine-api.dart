@@ -26,18 +26,31 @@ class RedmineApi {
   }
 
   static Future<List<Issue>> getIssues(String apiKey, String baseUrl) async {
-    final response = await http.get(
-      Uri.parse('$baseUrl/issues.json?key=$apiKey'),
-    );
+    List<Issue> allIssues = [];
+    int offset = 0;
+    int limit = 100; // Установите желаемый лимит
+    while(true)
+      {
+        final response = await http.get(
+          Uri.parse('$baseUrl/issues.json?key=$apiKey&offset=$offset&limit=$limit'),
+        );
 
-    if (response.statusCode == 200) {
-      final Map<String, dynamic> data = json.decode(response.body);
-      final List<Map<String, dynamic>> issuesJson = List<Map<String, dynamic>>.from(data['issues']);
+        if (response.statusCode == 200) {
+          final Map<String, dynamic> data = json.decode(response.body);
+          final List<Map<String, dynamic>> issuesJson = List<Map<String, dynamic>>.from(data['issues']);
 
-      return issuesJson.map((issueJson) => Issue.fromJson(issueJson)).toList();
-    } else {
-      throw Exception('Failed to load issues');
-    }
+          if (issuesJson.isEmpty) {
+            // Если больше нет задач, завершаем цикл
+            break;
+          }
+          // Добавляем полученные задачи к общему списку
+          allIssues.addAll(issuesJson.map((issueJson) => Issue.fromJson(issueJson)));
+          offset += limit; // Увеличиваем смещение для следующего запроса
+        } else {
+          throw Exception('Failed to load issues');
+        }
+      }
+      return allIssues;
   }
 
   //Нужен ли этот main??
