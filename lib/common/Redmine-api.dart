@@ -40,6 +40,7 @@ class RedmineApi {
     }
   }
 
+  //Нужен ли этот main??
   void main() async {
     final String baseUrl = 'https://dev.sciener.ru';
     final String baseKey = 'de1b88738e2a19ec994caf6f88d4581d6edd16bb';

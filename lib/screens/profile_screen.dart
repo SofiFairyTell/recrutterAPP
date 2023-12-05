@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:recrutterapp/screens/project_screen.dart';
 import '../common/Redmine-api.dart';
 import '../model/Redmine/Issue.dart';
 import '../widgets/drawer_widget.dart';
@@ -71,7 +72,10 @@ class ProfileScreen extends StatelessWidget {
                         onPressed:() async {
                           try {
                             List<Issue> issues = await RedmineApi.getIssues(baseKey,baseUrl);
-                            print(issues.length);
+                            Navigator.push(context,
+                              MaterialPageRoute(
+                                  builder:(context)=>ProjectsScreen(issues: issues),),);
+                            // print(issues.length);
                           } catch (e) {
                             print('Error: $e');
                           }

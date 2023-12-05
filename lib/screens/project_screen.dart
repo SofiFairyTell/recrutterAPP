@@ -1,42 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:recrutterapp/widgets/AppBarCustom.dart';
+import '../model/Redmine/Issue.dart';
 import '../widgets/drawer_widget.dart';
 import '../widgets/card_widget.dart';
 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class ProjectsScreen extends StatelessWidget {
-  ProjectsScreen({required Key? key}) : super(key: key);
+  ProjectsScreen({required this.issues});
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-
-  List<CardData> cardDataList = [
-    CardData(
-      title: 'Бизнес-аналитик',
-      description: 'Количество требуемых специалистовв. Требования. Тестовое',
-      imageUrl: 'assets/icons/hr.png',
-    ),
-    CardData(
-      title: 'Проект 3',
-      description: 'Количество требуемых специалистовв. Требования. Тестовое',
-      imageUrl: 'assets/icons/hr.png',
-    ),
-    CardData(
-      title: 'Проект 3',
-      description: 'Количество требуемых специалистовв. Требования. Тестовое',
-      imageUrl: 'assets/icons/hr.png',
-    ),
-    CardData(
-      title: 'Проект 3',
-      description: 'Количество требуемых специалистовв. Требования. Тестовое',
-      imageUrl: 'assets/icons/hr.png',
-    ),
-    CardData(
-      title: 'Проект 3',
-      description: 'Количество требуемых специалистовв. Требования. Тестовое',
-      imageUrl: 'assets/icons/hr.png',
-    ),
-  ];
+  final List<Issue> issues;
 
   @override
   Widget build(BuildContext context) {
@@ -44,18 +18,14 @@ class ProjectsScreen extends StatelessWidget {
       key: scaffoldKey,
       appBar: AppBarCustom(scaffoldKey:scaffoldKey, key: null,),
       backgroundColor: Colors.white,
-      body:  SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              // Виджет 1 - ссылка на заглушку виджета с редактированием текущего экрана
-              // buildCustomAppBarWithActions(),
-              // Виджет 2 - область для листа из виджетов
-              buildMultipleCardWidgets(cardDataList),
-            ],
-          ),
-        ),
-      ),
+      body:  ListView.builder(
+        itemCount: issues.length,
+        itemBuilder: (context, index) {
+          return ListTile(
+            title: Text(issues[index].project),
+            subtitle: Text('Project: ${issues[index].subject}'),
+          );
+        },),
       drawer: DrawerWidget(),
     );
   }

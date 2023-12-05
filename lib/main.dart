@@ -33,7 +33,7 @@ void main()  async {
       '/vac':(context) => VacancScreen(key: null,),
       '/candidates':(context) => CandidatScreen(),
       '/chart':(context) => ChartScreen(),
-      '/projects':(context) => ProjectsScreen(key: null,),
+      '/projects':(context) => ProjectsScreen(issues: []),
     },
   ));
 }
