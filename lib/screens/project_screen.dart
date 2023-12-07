@@ -23,7 +23,7 @@ class ProjectsScreen extends StatelessWidget {
         itemBuilder: (context, index) {
           return ListTile(
             title: Text(issues[index].project),
-            subtitle: Text('Project: ${issues[index].subject}'),
+            subtitle: Text('Project: ${issues[index].subject},Date:${issues[index].createdOn}'),
           );
         },),
       drawer: DrawerWidget(),
