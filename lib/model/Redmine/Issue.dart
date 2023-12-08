@@ -54,21 +54,21 @@ class Issue {
     return Issue(
       id: json['id'],
       subject: json['subject'],
-      project: json['project']['name'],
+      project: json['project']?['name'],
       subtasks: subtasks,
       subtaskIds: subtaskIds, stage: '',
       startDate: json['start_date'] ?? '',
       dueDate: json['due_date'] ?? '',
-      estimatedHours: json['estimated_hours']?? '',
+      estimatedHours: json['estimated_hours'].toString()?? '',
       progress: '',
-      status: json['status']['name'] ?? '',
-      author: json['author'] ?? '',
+      status: json['status']?['name'] ?? '',
+      author: json['author']?['name'] ?? '',
       createdOn: json['created_on'] ?? '',
       updatedOn: json['updated_on'] ?? '',
       description: json['description'] ?? '',
-        assignedTo:json['assigned_to'] ?? '',
-        priority: json['priority']['name'] ?? '',
-        tracker: json['tracker']['name'] ?? ''
+        assignedTo:json['assigned_to']?['name'] ?? '',
+        priority: json['priority']?['name'] ?? '',
+        tracker: json['tracker']?['name'] ?? ''
       //stage: json['stage'] != null ? json['stage']['value'] as String? : null
     );
   }

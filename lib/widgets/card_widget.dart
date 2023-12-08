@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 class CardData {
   final String title;
   final String description;
-  final String imageUrl;
+  final String? imageUrl;
 
-  CardData({required this.title, required this.description, required this.imageUrl});
+  CardData({required this.title, required this.description, this.imageUrl});
 }
 
 class CardWidget extends StatelessWidget {
@@ -14,7 +14,7 @@ class CardWidget extends StatelessWidget {
   final String? imageUrl;
   final void Function()? onPressed;
 
-  const CardWidget({
+  CardWidget({
     Key? key,
     required this.title,
     required this.description,
@@ -22,6 +22,14 @@ class CardWidget extends StatelessWidget {
     this.onPressed,
   }) : super(key: key);
 
+  CardWidget.fromData(CardData cardData, VoidCallback? onPressed)
+      : this(
+    key: Key(cardData.title),
+    title: cardData.title,
+    description: cardData.description,
+    imageUrl: cardData.imageUrl,
+    onPressed: onPressed,
+  );
 
 
   @override
