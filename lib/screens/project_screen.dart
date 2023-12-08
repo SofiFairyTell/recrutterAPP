@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:recrutterapp/widgets/AppBarCustom.dart';
+import '../model/Redmine/Projects.dart';
 import '../model/Redmine/Issue.dart';
 import '../widgets/card_project.dart';
 import '../widgets/drawer_widget.dart';
 import '../widgets/card_widget.dart';
-
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 // Пример преобразования списка Issue в список ProjectData
-List<ProjectData> convertIssuesToProjectDataList(List<Issue> issues) {
+List<ProjectData> convertIssuesToProjectDataList(List<Projects> issues) {
   return issues.map((issue) {
     return ProjectData(
-      title: issue.project,
-      description: issue.subject ?? '', // Замените на соответствующее поле из Issue
-      icon:     IconData(issue.subject.hashCode, fontFamily: 'MaterialIcons'),
+      title: issue.name,
+      description: '', // Замените на соответствующее поле из Issue
+      icon:     IconData(issue.name.hashCode, fontFamily: 'MaterialIcons'),
       startDate: issue.createdOn,
       endDate: '',
     );
@@ -25,11 +25,11 @@ class ProjectsScreen extends StatelessWidget {
   ProjectsScreen({required this.issues});
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final List<Issue> issues;
+  final List<Projects> issues;
 
   @override
   Widget build(BuildContext context) {
-    List<ProjectData> projectDataList = convertIssuesToProjectDataList(issues);
+   List<ProjectData> projectDataList = convertIssuesToProjectDataList(issues);
 
     return Scaffold(
       key: scaffoldKey,

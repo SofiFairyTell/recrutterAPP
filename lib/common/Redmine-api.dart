@@ -4,7 +4,6 @@ import 'package:http/http.dart' as http;
 import 'package:recrutterapp/model/Redmine/Projects.dart';
 import 'dart:convert';
 import '../model/Redmine/Issue.dart';
-import '../model/Redmine/Projects.dart';
 
 class RedmineApi {
   final String baseUrl;
@@ -12,8 +11,8 @@ class RedmineApi {
 
   RedmineApi({required this.baseUrl, required this.apiKey});
 
-  static Future<List<Issue>> getIssues(String apiKey, String baseUrl) async {
-    List<Issue> allIssues = [];
+  static Future<List<Projects>> getProjects(String apiKey, String baseUrl) async {
+    List<Projects> allProjects = [];
     int offset = 0;
     int limit = 100; // Установите желаемый лимит
     while(true)
@@ -31,17 +30,17 @@ class RedmineApi {
             break;
           }
           // Добавляем полученные задачи к общему списку
-          allIssues.addAll(projectsJson.map((issueJson) => Projects.fromJson(projectsJson)));
+          allProjects.addAll(projectsJson.map((projectsJson) => Projects.fromJson(projectsJson)));
           offset += limit; // Увеличиваем смещение для следующего запроса
         } else {
           throw Exception('Failed to load issues');
         }
       }
-      return allIssues;
+      return allProjects;
   }
 
-  static Future<List<Issue>> getProjects(String apiKey, String baseUrl) async {
-    List<Issue> allProjects = [];
+  static Future<List<Issue>> getIssues(String apiKey, String baseUrl) async {
+    List<Issue> allIssues = [];
     int offset = 0;
     int limit = 100; // Установите желаемый лимит
     while(true)
@@ -66,23 +65,6 @@ class RedmineApi {
       }
     }
     return allIssues;
-  }
-
-
-
-  //Нужен ли этот main??
-  void main() async {
-    final String baseUrl = 'https://dev.sciener.ru';
-    final String baseKey = 'de1b88738e2a19ec994caf6f88d4581d6edd16bb';
-
-    final redmine = RedmineApi(baseUrl: baseUrl, apiKey: baseKey);
-
-    try {
-      final issues = await redmine.getAllIssues();
-      print('Issues: $issues');
-    } catch (e) {
-      print('Error: $e');
-    }
   }
 
 }
