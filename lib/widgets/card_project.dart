@@ -22,7 +22,7 @@ class ProjectWidget extends CardWidget {
 
   ProjectWidget (this.onPressed, {
     Key? key,
-    required this.projectData, required String title, required String description,
+    required this.projectData, required title, required description,
   }) : super(
     key: key,
     title: projectData.title,

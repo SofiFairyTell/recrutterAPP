@@ -35,26 +35,29 @@ class ProjectsScreen extends StatelessWidget {
       key: scaffoldKey,
       appBar: AppBarCustom(scaffoldKey:scaffoldKey, key: null,),
       backgroundColor: Colors.white,
-      body:  ListView.builder(
-        itemCount: issues.length,
-        itemBuilder: (context, index) {
-          return ListTile(
-            title: Text(issues[index].project),
-            subtitle: Text('Project: ${issues[index].subject},Date:${issues[index].createdOn}'),
-          );
-        },),
+      body:  SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              // Виджет 1 - ссылка на заглушку виджета с редактированием текущего экрана
+              // buildCustomAppBarWithActions(),
+              // Виджет 2 - область для листа из виджетов
+              buildMultipleCardWidgets(projectDataList),
+            ],
+          ),
+        ),
+      ),
       drawer: DrawerWidget(),
     );
   }
 
+
+
+
   Widget buildMultipleCardWidgets(List<ProjectData> ProjectDataList) {
     return Column(
-      children: ProjectDataList.map((cardData) {
-        return CardWidget(
-          title: cardData.title,
-          description: cardData.description,
-          imageUrl: cardData.imageUrl, key: null,
-        );
+      children: ProjectDataList.map((projectData) {
+        return ProjectWidget(() { }, projectData: projectData, title: projectData.title, description: projectData.description);
       }).toList(),
     );
   }
