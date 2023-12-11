@@ -60,8 +60,8 @@ class ProjectWidget extends CardWidget {
             ),
             trailing: PopupMenuButton(
               itemBuilder: (context) => [
-                PopupMenuItem(child: Text('View Project')),
-                PopupMenuItem(child: Text('View Details')),
+                PopupMenuItem(child: Text('О проекте')),
+                PopupMenuItem(child: Text('Задачи проекта')),
               ],
             ),
           ),
