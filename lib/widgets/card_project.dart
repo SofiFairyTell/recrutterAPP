@@ -5,7 +5,7 @@ import 'package:recrutterapp/widgets/card_widget.dart';
 class ProjectData extends CardData {
   final String startDate;
   final String endDate;
-  final IconData icon;
+  final Icon icon;
 
   ProjectData({
     required String title,
@@ -39,7 +39,7 @@ class ProjectWidget extends CardWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ListTile(
-            leading: Icon(projectData.icon, size: 32),
+            leading: FlutterLogo(),
             title: Text(
               projectData.title,
               style: TextStyle(

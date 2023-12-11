@@ -13,8 +13,8 @@ List<ProjectData> convertIssuesToProjectDataList(List<Projects> issues) {
     return ProjectData(
       title: issue.name,
       description: '', // Замените на соответствующее поле из Issue
-      icon:     IconData(issue.name.hashCode, fontFamily: 'MaterialIcons'),
       startDate: issue.createdOn,
+      icon:     Icon(Icons.cases),
       endDate: '',
     );
   }).toList();
@@ -50,8 +50,6 @@ class ProjectsScreen extends StatelessWidget {
       drawer: DrawerWidget(),
     );
   }
-
-
 
 
   Widget buildMultipleCardWidgets(List<ProjectData> ProjectDataList) {
