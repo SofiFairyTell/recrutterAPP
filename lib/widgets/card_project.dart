@@ -62,6 +62,7 @@ class ProjectWidget extends CardWidget {
               itemBuilder: (context) => [
                 PopupMenuItem(child: Text('О проекте')),
                 PopupMenuItem(child: Text('Задачи проекта')),
+                /// to-do нажатие на выбранные Задачи - выводит список задач только по выбранному проекту
               ],
             ),
           ),

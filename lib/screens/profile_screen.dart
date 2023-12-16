@@ -3,6 +3,7 @@ import 'package:recrutterapp/model/Redmine/Projects.dart';
 import 'package:recrutterapp/screens/project_screen.dart';
 import '../common/Redmine-api.dart';
 import '../model/Redmine/Issue.dart';
+import '../model/Redmine/User.dart';
 import '../widgets/drawer_widget.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/AppBarCustom.dart';
@@ -39,7 +40,17 @@ class ProfileScreen extends StatelessWidget {
                       CustomButton(
                         firstText: 'Кандидаты',
                         secondText:'Подходящие участники команд',
-                        onPressed: () => Navigator.pushNamed(context,'/candidates'), key: null,
+                        onPressed:() async{
+                          try{
+                            List<User> Users = await RedmineApi.getUser(baseKey,baseUrl);
+                            Navigator.pushNamed(context,'/candidates');
+                          }
+                          catch(e){
+                            print('Error: $e');
+                          }
+
+                        },key:null,
+                        //onPressed: () => Navigator.pushNamed(context,'/candidates'), key: null,
                       ),
                     ],
                   ),

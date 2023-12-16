@@ -94,7 +94,7 @@ class RedmineApi {
         allUser.addAll(userJson.map((userJson) => User.fromJson(userJson)));
         offset += limit; // Увеличиваем смещение для следующего запроса
       } else {
-        throw Exception('Failed to load issues');
+        throw Exception('Failed to load people');
       }
     }
     return allUser;
