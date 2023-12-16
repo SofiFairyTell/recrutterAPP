@@ -2,6 +2,7 @@
 
 import 'package:http/http.dart' as http;
 import 'package:recrutterapp/model/Redmine/Projects.dart';
+import 'package:recrutterapp/model/Redmine/User.dart';
 import 'dart:convert';
 import '../model/Redmine/Issue.dart';
 
@@ -11,6 +12,10 @@ class RedmineApi {
 
   RedmineApi({required this.baseUrl, required this.apiKey});
 
+  /*** Получить то что есть на сервере
+   * apiKey - ключ пользователя Redmine
+   * baseURL - ссылка на Redmine
+   * */
   static Future<List<Projects>> getProjects(String apiKey, String baseUrl) async {
     List<Projects> allProjects = [];
     int offset = 0;
@@ -67,4 +72,31 @@ class RedmineApi {
     return allIssues;
   }
 
+  static Future<List<User>> getUser(String apiKey, String baseUrl) async {
+    List<User> allUser = [];
+    int offset = 0;
+    int limit = 100; // Установите желаемый лимит
+    while(true)
+    {
+      final response = await http.get(
+        Uri.parse('$baseUrl/people.json?key=$apiKey&offset=$offset&limit=$limit'),
+      );
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final List<Map<String, dynamic>> userJson = List<Map<String, dynamic>>.from(data['people']);
+
+        if (userJson.isEmpty) {
+          // Если больше нет задач, завершаем цикл
+          break;
+        }
+        // Добавляем полученные задачи к общему списку
+        allUser.addAll(userJson.map((userJson) => User.fromJson(userJson)));
+        offset += limit; // Увеличиваем смещение для следующего запроса
+      } else {
+        throw Exception('Failed to load issues');
+      }
+    }
+    return allUser;
+  }
 }

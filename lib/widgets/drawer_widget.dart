@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:recrutterapp/model/user.dart';
+import 'package:recrutterapp/model/HH-RU/user.dart';
 import 'package:recrutterapp/screens/vacanc_screen.dart';
 
 class DrawerWidget extends StatelessWidget {

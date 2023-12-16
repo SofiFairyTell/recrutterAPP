@@ -3,7 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:recrutterapp/bloc/jobs/snack_bar.dart';
-import 'package:recrutterapp/model/user.dart';
+import 'package:recrutterapp/model/HH-RU/user.dart';
 import 'package:recrutterapp/screens/profile_screen.dart';
 import '../widgets/photo_widget.dart';
 // import 'package:firebase_storage/firebase_storage.dart';
