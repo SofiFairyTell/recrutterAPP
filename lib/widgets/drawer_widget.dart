@@ -65,7 +65,7 @@ class DrawerWidget extends StatelessWidget {
           ListTile(
             leading: Icon(Icons.person),
             title: Text('Кандидаты'),
-            onTap:  ()=> Navigator.pushNamed(context,'/candidats'),
+            onTap:  ()=> Navigator.pushNamed(context,'/candidates'),
           ),
           ListTile(
             leading: Icon(Icons.analytics),

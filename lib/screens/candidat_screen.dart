@@ -54,7 +54,7 @@ class CandidatScreen extends StatelessWidget {
   }
 
 
-  Widget buildMultipleCardWidgets(List<PersonData> PersonDataList) {
+  Widget buildMultipleCardWidgets(List<PersonData> PersonDataList) {r
     return Column(
       children: PersonDataList.map((personData) {
         return PersonWidget(() { }, personData: personData, title: personData.title, description: personData.description);

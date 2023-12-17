@@ -18,6 +18,12 @@ class ProfileScreen extends StatelessWidget {
   final String baseUrl = 'https://dev.sciener.ru';
   final String baseKey = 'de1b88738e2a19ec994caf6f88d4581d6edd16bb';
 
+  int textIndex = 0;
+  List<String> loadingTexts = [
+    'Опрашиваем отдел кадров...',
+    'Смотрим в личные дела..',
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,7 +60,25 @@ class ProfileScreen extends StatelessWidget {
                                   builder: (context, snapshot) {
                                     if (snapshot.connectionState == ConnectionState.waiting) {
                                       // Если данные загружаются, отображаем индикатор загрузки
-                                      return Center(child: CircularProgressIndicator());
+                                      return Center(
+                                        child: Stack(
+                                          alignment: Alignment.center,
+                                          children: [
+
+                                            CircularProgressIndicator(),
+                                            Column(
+                                              mainAxisAlignment: MainAxisAlignment.center,
+                                              children: [
+                                                for (int i = 0; i < loadingTexts.length; i++)
+                                                    Opacity(
+                                                        opacity: i == textIndex ? 1.0 : 0.0,
+                                                        child: Text(loadingTexts[i], style: TextStyle(color: Colors.white)),
+                                                    ),
+                                          ],
+                                        ),
+                                        ]
+                                        )
+                                      );
                                     } else if (snapshot.hasError) {
                                       // Если произошла ошибка, отображаем сообщение об ошибке
                                       return Center(child: Text('Error: ${snapshot.error}'));
