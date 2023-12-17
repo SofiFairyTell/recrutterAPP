@@ -39,7 +39,7 @@ class PersonWidget extends CardWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ListTile(
-            leading: FlutterLogo(),
+            leading: Image.asset('assets/icons/hr.png',width: 48,height: 48,),
             title: Text(
               personData.title,
               style: TextStyle(
