@@ -51,9 +51,9 @@ class PersonWidget extends CardWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('ID: ${personData.id}'),
-                Text('Роль:'),
+                //Text('Роль:'),
                 Chip(
-                  label: Text(personData.title, style: TextStyle(color: Colors.white)),
+                  label: Text(personData.role, style: TextStyle(color: Colors.white)),
                   backgroundColor: Colors.brown,
                 ),
               ],

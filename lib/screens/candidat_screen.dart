@@ -16,7 +16,7 @@ List<PersonData> convertIssuesToProjectDataList(List<Person> person) {
       description: '',
       id: person.id,
       icon:     Icon(Icons.cases),
-      //role: person.roles,
+      role: person.roles,
     );
   }).toList();
 }

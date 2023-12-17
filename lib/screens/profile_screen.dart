@@ -44,12 +44,30 @@ class ProfileScreen extends StatelessWidget {
                         secondText:'Подходящие участники команд',
                         onPressed:() async{
                           try{
-                            List<List<Person>> Users = await RedmineApi.fetchPeopleInProjects(baseKey,baseUrl);
-                            List<Person> UniqUser = Person.getUniquePeople(Users);
+                           // List<List<Person>> Users = await RedmineApi.fetchPeopleInProjects(baseKey,baseUrl);
+                            //List<Person> UniqUser = Person.getUniquePeople(Users);
                             //Navigator.pushNamed(context,'/candidates',arguments: CandidatScreen(Persons: UniqUser),);
                             Navigator.push(context,
                               MaterialPageRoute(
-                                builder:(context)=>CandidatScreen(Persons: UniqUser),),);
+                                builder:(context)=>FutureBuilder<List<List<Person>>>(
+                                  future: RedmineApi.fetchPeopleInProjects(baseKey, baseUrl),
+                                  builder: (context, snapshot) {
+                                    if (snapshot.connectionState == ConnectionState.waiting) {
+                                      // Если данные загружаются, отображаем индикатор загрузки
+                                      return Center(child: CircularProgressIndicator());
+                                    } else if (snapshot.hasError) {
+                                      // Если произошла ошибка, отображаем сообщение об ошибке
+                                      return Center(child: Text('Error: ${snapshot.error}'));
+                                    } else {
+                                      // Если данные загружены успешно, строим новый экран
+                                      List<Person> uniqueUsers = Person.getUniquePeople(snapshot.data!);
+                                      return CandidatScreen(Persons: uniqueUsers);
+                                    }
+                                  },
+                                ),
+                                //CandidatScreen(Persons: UniqUser),
+                              ),
+                            );
                           }
                           catch(e){
                             print('Error: $e');
