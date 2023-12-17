@@ -5,6 +5,7 @@ import 'package:recrutterapp/model/Redmine/Projects.dart';
 import 'package:recrutterapp/model/Redmine/User.dart';
 import 'dart:convert';
 import '../model/Redmine/Issue.dart';
+import '../model/Redmine/Person.dart';
 
 class RedmineApi {
   final String baseUrl;
@@ -79,7 +80,7 @@ class RedmineApi {
     while(true)
     {
       final response = await http.get(
-        Uri.parse('$baseUrl/people.json?key=$apiKey&offset=$offset&limit=$limit'),
+        Uri.parse('$baseUrl/people?per_page=$limit'),
       );
 
       if (response.statusCode == 200) {
@@ -87,10 +88,9 @@ class RedmineApi {
         final List<Map<String, dynamic>> userJson = List<Map<String, dynamic>>.from(data['people']);
 
         if (userJson.isEmpty) {
-          // Если больше нет задач, завершаем цикл
           break;
         }
-        // Добавляем полученные задачи к общему списку
+
         allUser.addAll(userJson.map((userJson) => User.fromJson(userJson)));
         offset += limit; // Увеличиваем смещение для следующего запроса
       } else {
@@ -98,5 +98,53 @@ class RedmineApi {
       }
     }
     return allUser;
+  }
+
+  static Future <List<User>> fetchRedmineUsers(String baseUrl, String apiKey) async {
+    List<User> allUser = [];
+    final response = await http.get(
+      Uri.parse('$baseUrl/users.json?key=$apiKey'),
+    );
+
+    if (response.statusCode == 200) {
+      final Map<String, dynamic> data = json.decode(response.body);
+      final List<Map<String, dynamic>> userJson = List<Map<String, dynamic>>.from(data['people']);
+      return allUser;
+    } else {
+      throw Exception('Failed to load users');
+    }
+  }
+
+  static Future<List<List<Person>>> fetchPeopleInProjects(String apiKey, String baseUrl) async {
+    final List<List<Person>> allPeopleInProjects = [];
+    final List<String> processedProjectIds = [];
+
+    final projects = await getProjects(apiKey, baseUrl);
+
+    for (var project in projects) {
+      if (processedProjectIds.contains(project.id.toString())) {
+        // Проект уже обработан, пропускаем его
+        continue;
+      }
+
+      final response = await http.get(
+        Uri.parse('$baseUrl/projects/${project.id}/memberships.json?key=$apiKey'),
+      );
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> data = json.decode(response.body);
+        final List<Map<String, dynamic>> membershipsJson = List<Map<String, dynamic>>.from(data['memberships']);
+
+        final List<Person> peopleInProject = membershipsJson.map((membershipJson) => Person.fromJson(membershipJson)).toList();
+        allPeopleInProjects.add(peopleInProject);
+
+        // Добавляем id проекта в список уже обработанных
+        processedProjectIds.add(project.id.toString());
+      } else {
+        throw Exception('Failed to load people in projects');
+      }
+    }
+
+    return allPeopleInProjects;
   }
 }

@@ -3,6 +3,7 @@ import 'package:recrutterapp/model/Redmine/Projects.dart';
 import 'package:recrutterapp/screens/project_screen.dart';
 import '../common/Redmine-api.dart';
 import '../model/Redmine/Issue.dart';
+import '../model/Redmine/Person.dart';
 import '../model/Redmine/User.dart';
 import '../widgets/drawer_widget.dart';
 import '../widgets/custom_button.dart';
@@ -42,7 +43,8 @@ class ProfileScreen extends StatelessWidget {
                         secondText:'Подходящие участники команд',
                         onPressed:() async{
                           try{
-                            List<User> Users = await RedmineApi.getUser(baseKey,baseUrl);
+                            List<List<Person>> Users = await RedmineApi.fetchPeopleInProjects(baseKey,baseUrl);
+                            List<Person> UniqUser = Person.getUniquePeople(Users);
                             Navigator.pushNamed(context,'/candidates');
                           }
                           catch(e){
