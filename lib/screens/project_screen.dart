@@ -22,14 +22,16 @@ List<ProjectData> convertIssuesToProjectDataList(List<Projects> issues) {
 
 
 class ProjectsScreen extends StatelessWidget {
-  ProjectsScreen({required this.issues});
+  ProjectsScreen({required this.projects});
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  final List<Projects> issues;
+  final List<Projects> projects;
 
   @override
   Widget build(BuildContext context) {
-   List<ProjectData> projectDataList = convertIssuesToProjectDataList(issues);
+   List<ProjectData> projectDataList = convertIssuesToProjectDataList(projects);
+   //final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
+   //final List<ProjectData> projectDataList = args['projects'];
 
     return Scaffold(
       key: scaffoldKey,

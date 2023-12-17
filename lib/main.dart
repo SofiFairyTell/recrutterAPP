@@ -31,9 +31,9 @@ void main()  async {
       '/signup': (context) =>  SignUpScreen(key: null,),
       '/profile': (context) =>  ProfileScreen(),
       '/vac':(context) => VacancScreen(key: null,),
-      '/candidates':(context) => CandidatScreen(),
+      '/candidates':(context) => CandidatScreen(Persons: [],),
       '/chart':(context) => ChartScreen(),
-      '/projects':(context) => ProjectsScreen(issues: []),
+      '/projects':(context) => ProjectsScreen(projects: []),
     },
   ));
 }

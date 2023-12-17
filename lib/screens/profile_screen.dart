@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:recrutterapp/model/Redmine/Projects.dart';
+import 'package:recrutterapp/screens/candidat_screen.dart';
 import 'package:recrutterapp/screens/project_screen.dart';
 import '../common/Redmine-api.dart';
 import '../model/Redmine/Issue.dart';
@@ -45,7 +46,10 @@ class ProfileScreen extends StatelessWidget {
                           try{
                             List<List<Person>> Users = await RedmineApi.fetchPeopleInProjects(baseKey,baseUrl);
                             List<Person> UniqUser = Person.getUniquePeople(Users);
-                            Navigator.pushNamed(context,'/candidates');
+                            //Navigator.pushNamed(context,'/candidates',arguments: CandidatScreen(Persons: UniqUser),);
+                            Navigator.push(context,
+                              MaterialPageRoute(
+                                builder:(context)=>CandidatScreen(Persons: UniqUser),),);
                           }
                           catch(e){
                             print('Error: $e');
@@ -88,7 +92,7 @@ class ProfileScreen extends StatelessWidget {
                             List<Projects> projects = await RedmineApi.getProjects(baseKey,baseUrl);
                             Navigator.push(context,
                               MaterialPageRoute(
-                                  builder:(context)=>ProjectsScreen(issues: projects),),);
+                                builder:(context)=>ProjectsScreen(projects: projects),),);
                             // print(issues.length);
                           } catch (e) {
                             print('Error: $e');
