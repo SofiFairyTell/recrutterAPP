@@ -7,7 +7,7 @@ import '../widgets/drawer_widget.dart';
 import '../widgets/card_widget.dart';
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
-// Пример преобразования списка Issue в список ProjectData
+// Преобразование списка Issue в список ProjectData
 List<ProjectData> convertIssuesToProjectDataList(List<Projects> issues) {
   return issues.map((issue) {
     return ProjectData(

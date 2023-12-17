@@ -1,13 +1,15 @@
 class Person {
   final String name;
   final String id;
-
-  Person({required this.name, required this.id});
+  final String roles;
+  //
+  Person({required this.name, required this.id,required this.roles});
 
   factory Person.fromJson(Map<String, dynamic> json) {
     return Person(
       name: json['user']?['name'] ?? 'Unknown', // Проверяем на null и используем значение по умолчанию, если null
       id: json['user']?['id']?.toString() ?? '',
+      roles: (json['roles'] as List<dynamic>).map((role) => role['name']).join(', '),
     );
   }
 
