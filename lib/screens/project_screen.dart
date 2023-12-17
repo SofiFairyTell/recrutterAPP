@@ -30,8 +30,7 @@ class ProjectsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
    List<ProjectData> projectDataList = convertIssuesToProjectDataList(projects);
-   //final args = ModalRoute.of(context)!.settings.arguments as Map<String, dynamic>;
-   //final List<ProjectData> projectDataList = args['projects'];
+
 
     return Scaffold(
       key: scaffoldKey,

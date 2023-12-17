@@ -18,7 +18,7 @@ class Person {
     Set<Person> uniquePeople = Set<Person>();
 
     // Итерируем по списку списков пользователей в проектах
-    for (var peopleInProject in rallPeopleInProjects) {
+    for (var peopleInProject in allPeopleInProjects) {
       // Добавляем всех пользователей из текущего списка в множество
       uniquePeople.addAll(peopleInProject);
     }
