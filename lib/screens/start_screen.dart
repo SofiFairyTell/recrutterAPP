@@ -25,7 +25,7 @@ class StartScreen extends StatelessWidget {
                     bottom: Radius.elliptical(100, 30),
                   ),
                   image: DecorationImage(
-                    image: AssetImage('assets/images/startlogo.jpg'),
+                    image: AssetImage('assets/images/startlogoV2.jpg'),
                     fit: BoxFit.cover,
                   ),
                 ),
