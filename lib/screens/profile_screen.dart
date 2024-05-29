@@ -62,7 +62,6 @@ class ProfileScreen extends StatelessWidget {
                                         child: Stack(
                                           alignment: Alignment.center,
                                           children: [
-
                                             const CircularProgressIndicator(),
                                             Column(
                                               mainAxisAlignment: MainAxisAlignment.center,

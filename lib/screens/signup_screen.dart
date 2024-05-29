@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:recrutterapp/bloc/jobs/snack_bar.dart';
 import 'package:recrutterapp/model/HH-RU/user.dart';
 import '../widgets/photo_widget.dart';
-// import 'package:firebase_storage/firebase_storage.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class SignUpScreen extends StatefulWidget {
   const SignUpScreen({super.key});

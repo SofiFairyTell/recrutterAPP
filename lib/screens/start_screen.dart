@@ -31,7 +31,7 @@ class StartScreen extends StatelessWidget {
                 ),
               ),
             ),
-            const SizedBox(height: 50),
+            const SizedBox(height: 8),
             Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

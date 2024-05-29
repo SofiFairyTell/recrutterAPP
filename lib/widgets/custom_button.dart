@@ -16,10 +16,13 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return SizedBox(
       width: 150,
-      height: 150,
+      height: 100,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color.fromRGBO(193, 200, 219, 100)
+          backgroundColor: const Color.fromRGBO(193, 200, 219, 100),
+          shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15), // Скругленные углы
+      ),
         ),
         onPressed: onPressed,
         child: Column(
@@ -29,12 +32,12 @@ class CustomButton extends StatelessWidget {
               firstText,
               textAlign: TextAlign.left,
               style: const TextStyle(
-                fontSize: 20,
+                fontSize: 16,
                 fontWeight: FontWeight.bold,
                 fontStyle: FontStyle.normal,
               ),
             ),
-            const SizedBox(width: 30),
+            const SizedBox(width: 8),
             Text(
               secondText,
               textAlign: TextAlign.left,

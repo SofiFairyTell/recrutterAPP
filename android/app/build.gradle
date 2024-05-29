@@ -32,7 +32,8 @@ android {
     compileSdkVersion flutter.compileSdkVersion
     ndkVersion flutter.ndkVersion
     defaultConfig{
-        minSdkVersion 19
+        minSdkVersion flutter.minSdkVersion
+        multiDexEnabled true
     }
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
