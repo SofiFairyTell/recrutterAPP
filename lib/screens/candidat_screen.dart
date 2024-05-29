@@ -25,9 +25,6 @@ class CandidatScreen extends StatelessWidget {
   final scaffoldKey = GlobalKey<ScaffoldState>();
   CandidatScreen({super.key, required this.Persons});
 
-
-
-
   @override
   Widget build(BuildContext context) {
     List<PersonData> personDataList = convertIssuesToProjectDataList(Persons);

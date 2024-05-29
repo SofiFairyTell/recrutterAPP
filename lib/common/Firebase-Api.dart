@@ -1,16 +1,18 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:recrutterapp/common/Redmine-api.dart';
+import 'package:recrutterapp/model/Redmine/Person.dart';
 
 // Модель данных для Person
-class Person {
+class PersonFirebase {
   final String name;
   final String id;
   final String roles;
 
-  Person({required this.name, required this.id, required this.roles});
+  PersonFirebase({required this.name, required this.id, required this.roles});
 
-  factory Person.fromJson(Map<String, dynamic> json) {
-    return Person(
+  factory PersonFirebase.fromJson(Map<String, dynamic> json) {
+    return PersonFirebase(
       name: json['name'],
       id: json['id'],
       roles: json['roles'],
@@ -60,9 +62,9 @@ class FirebaseService {
   }
 
   // Получение списка Person
-  Future<List<Person>> fetchPersons() async {
-    QuerySnapshot snapshot = await _firestore.collection('persons').get();
-    return snapshot.docs.map((doc) => Person.fromJson(doc.data() as Map<String, dynamic>)).toList();
+  Future<List<PersonFirebase>> fetchPersons() async {
+    QuerySnapshot snapshot = await _firestore.collection('Persons').get();
+    return snapshot.docs.map((doc) => PersonFirebase.fromJson(doc.data() as Map<String, dynamic>)).toList();
   }
 
   // Получение списка Skills
@@ -75,5 +77,20 @@ class FirebaseService {
   Future<List<Recommendation>> fetchRecommendations() async {
     QuerySnapshot snapshot = await _firestore.collection('recommendations').get();
     return snapshot.docs.map((doc) => Recommendation.fromJson(doc.data() as Map<String, dynamic>)).toList();
+  }
+
+  static Future<void> uploadUsersToFirestore(List<Person> users) async {
+    final firestoreInstance = FirebaseFirestore.instance;
+    final batch = firestoreInstance.batch();
+
+    // Загрузка только первых 10 пользователей
+    for (var i = 0; i < users.length && i < 10; i++) {
+      final user = users[i];
+      final docRef = firestoreInstance.collection('Person').doc(); // Создаем новый документ
+      batch.set(docRef, user.toMap());
+    }
+
+    // Выполняем батч-запрос
+    await batch.commit();
   }
 }

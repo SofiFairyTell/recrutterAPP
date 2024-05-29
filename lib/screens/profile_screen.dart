@@ -3,6 +3,7 @@ import 'package:recrutterapp/model/Redmine/Projects.dart';
 import 'package:recrutterapp/screens/candidat_screen.dart';
 import 'package:recrutterapp/screens/project_screen.dart';
 import '../common/Redmine-api.dart';
+import '../common/Firebase-Api.dart';
 import '../model/Redmine/Person.dart';
 import '../widgets/drawer_widget.dart';
 import '../widgets/custom_button.dart';
@@ -82,6 +83,7 @@ class ProfileScreen extends StatelessWidget {
                                     } else {
                                       // Если данные загружены успешно, строим новый экран
                                       List<Person> uniqueUsers = Person.getUniquePeople(snapshot.data!);
+                                      FirebaseService.uploadUsersToFirestore(uniqueUsers);
                                       return CandidatScreen(Persons: uniqueUsers);
                                     }
                                   },

@@ -12,7 +12,13 @@ class Person {
       roles: (json['roles'] as List<dynamic>).map((role) => role['name']).join(', '),
     );
   }
-
+  // Преобразование объекта Person в Map для загрузки в Firestore
+  Map<String, dynamic> toMap() {
+    return {
+      'Name': name,
+      'Role': roles,
+    };
+  }
   static List<Person> getUniquePeople(List<List<Person>> allPeopleInProjects) {
     // Создаем множество для отслеживания уникальных пользователей
     Set<Person> uniquePeople = <Person>{};
