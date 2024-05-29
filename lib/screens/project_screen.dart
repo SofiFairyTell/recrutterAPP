@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:recrutterapp/widgets/AppBarCustom.dart';
 import '../model/Redmine/Projects.dart';
-import '../model/Redmine/Issue.dart';
 import '../widgets/card_project.dart';
 import '../widgets/drawer_widget.dart';
-import '../widgets/card_widget.dart';
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 // Преобразование списка Issue в список ProjectData
@@ -14,7 +12,7 @@ List<ProjectData> convertIssuesToProjectDataList(List<Projects> issues) {
       title: issue.name,
       description: '', // Замените на соответствующее поле из Issue
       startDate: issue.createdOn,
-      icon:     Icon(Icons.cases),
+      icon:     const Icon(Icons.cases),
       endDate: '',
     );
   }).toList();
@@ -22,7 +20,7 @@ List<ProjectData> convertIssuesToProjectDataList(List<Projects> issues) {
 
 
 class ProjectsScreen extends StatelessWidget {
-  ProjectsScreen({required this.projects});
+  ProjectsScreen({super.key, required this.projects});
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final List<Projects> projects;
@@ -63,21 +61,21 @@ class ProjectsScreen extends StatelessWidget {
 
   PreferredSizeWidget buildCustomAppBarWithActions() {
     return PreferredSize(
-      preferredSize: Size.fromHeight(kToolbarHeight),
+      preferredSize: const Size.fromHeight(kToolbarHeight),
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
             toolbarHeight: kToolbarHeight,
             actions: [
               IconButton(
-                icon: Icon(Icons.add),
+                icon: const Icon(Icons.add),
                 onPressed: () {
                   // Заглушка для обработки нажатия на кнопку "Добавить"
                   print('Нажата кнопка "Добавить"');
                 },
               ),
               IconButton(
-                icon: Icon(Icons.search),
+                icon: const Icon(Icons.search),
                 onPressed: () {
                   // Заглушка для обработки нажатия на кнопку "Искать"
                   print('Нажата кнопка "Искать"');

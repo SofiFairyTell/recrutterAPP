@@ -72,7 +72,7 @@ class ButtonWidget extends StatelessWidget {
       onPressed: onPressed,
       child: Text(
         text,
-        style: TextStyle(
+        style: const TextStyle(
           color: Colors.blue,
           fontSize: 18,
         ),
@@ -85,7 +85,7 @@ void goToRegistration(BuildContext context) {
   Navigator.push(
     context,
     MaterialPageRoute(
-      builder: (context) => SignUpScreen(
+      builder: (context) => const SignUpScreen(
         key: null,
       ),
     ),

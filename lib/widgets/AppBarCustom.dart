@@ -10,10 +10,10 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: Text(' '),
-      backgroundColor: Color.fromRGBO(255, 205, 176, 100),
+      title: const Text(' '),
+      backgroundColor: const Color.fromRGBO(255, 205, 176, 100),
       leading: IconButton(
-        icon: Icon(Icons.menu),
+        icon: const Icon(Icons.menu),
         onPressed: () {
           if (scaffoldKey.currentState!.isDrawerOpen) {
             scaffoldKey.currentState?.openEndDrawer();
@@ -24,7 +24,7 @@ class AppBarCustom extends StatelessWidget implements PreferredSizeWidget {
       ),
       actions: [
         IconButton(
-          icon: Icon(Icons.logout),
+          icon: const Icon(Icons.logout),
           onPressed: () {
             if(user != null)
               {

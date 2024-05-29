@@ -1,4 +1,3 @@
-import 'dart:ffi';
 
 class User {
   int auth_source_id;

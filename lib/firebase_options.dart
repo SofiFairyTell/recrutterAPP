@@ -33,10 +33,7 @@ class DefaultFirebaseOptions {
           'you can reconfigure this by running the FlutterFire CLI again.',
         );
       case TargetPlatform.windows:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for windows - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return windows;
       case TargetPlatform.linux:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for linux - '
@@ -50,20 +47,29 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyAheEidA-Appu_kwm5mIzWTFuvPC_V3MUk',
-    appId: '1:1091977349322:web:f86333040b9f3baf5c0c33',
-    messagingSenderId: '1091977349322',
-    projectId: 'recruter-53960',
-    authDomain: 'recruter-53960.firebaseapp.com',
-    storageBucket: 'recruter-53960.appspot.com',
+    apiKey: 'AIzaSyC52DRZkbTBBlJL8Ws3Lbw9X5nCkQTcRHg',
+    appId: '1:347905549781:web:a932259fb7b3577e5b095c',
+    messagingSenderId: '347905549781',
+    projectId: 'recruter-7c78a',
+    authDomain: 'recruter-7c78a.firebaseapp.com',
+    storageBucket: 'recruter-7c78a.appspot.com',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAFKUZVR0qxgOjSdmtgI6r5LxaFEXeT1uU',
-    appId: '1:1091977349322:android:3ee0c7ea8424aed15c0c33',
-    messagingSenderId: '1091977349322',
-    projectId: 'recruter-53960',
-    storageBucket: 'recruter-53960.appspot.com',
+    apiKey: 'AIzaSyCsfdcDkI29LjYCem-wNBiTxvAs3Ft9r3I',
+    appId: '1:347905549781:android:141fbd9f781f798b5b095c',
+    messagingSenderId: '347905549781',
+    projectId: 'recruter-7c78a',
+    storageBucket: 'recruter-7c78a.appspot.com',
+  );
+
+  static const FirebaseOptions windows = FirebaseOptions(
+    apiKey: 'AIzaSyC52DRZkbTBBlJL8Ws3Lbw9X5nCkQTcRHg',
+    appId: '1:347905549781:web:bdf8f99209a3bef05b095c',
+    messagingSenderId: '347905549781',
+    projectId: 'recruter-7c78a',
+    authDomain: 'recruter-7c78a.firebaseapp.com',
+    storageBucket: 'recruter-7c78a.appspot.com',
   );
 
 }

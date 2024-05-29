@@ -3,9 +3,7 @@ import 'package:recrutterapp/model/Redmine/Projects.dart';
 import 'package:recrutterapp/screens/candidat_screen.dart';
 import 'package:recrutterapp/screens/project_screen.dart';
 import '../common/Redmine-api.dart';
-import '../model/Redmine/Issue.dart';
 import '../model/Redmine/Person.dart';
-import '../model/Redmine/User.dart';
 import '../widgets/drawer_widget.dart';
 import '../widgets/custom_button.dart';
 import '../widgets/AppBarCustom.dart';
@@ -65,14 +63,14 @@ class ProfileScreen extends StatelessWidget {
                                           alignment: Alignment.center,
                                           children: [
 
-                                            CircularProgressIndicator(),
+                                            const CircularProgressIndicator(),
                                             Column(
                                               mainAxisAlignment: MainAxisAlignment.center,
                                               children: [
                                                 for (int i = 0; i < loadingTexts.length; i++)
                                                     Opacity(
                                                         opacity: i == textIndex ? 1.0 : 0.0,
-                                                        child: Text(loadingTexts[i], style: TextStyle(color: Colors.white)),
+                                                        child: Text(loadingTexts[i], style: const TextStyle(color: Colors.white)),
                                                     ),
                                           ],
                                         ),

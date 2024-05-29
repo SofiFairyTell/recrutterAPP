@@ -13,10 +13,10 @@ class RedmineApi {
 
   RedmineApi({required this.baseUrl, required this.apiKey});
 
-  /*** Получить то что есть на сервере
-   * apiKey - ключ пользователя Redmine
-   * baseURL - ссылка на Redmine
-   * */
+  /// * Получить то что есть на сервере
+  /// apiKey - ключ пользователя Redmine
+  /// baseURL - ссылка на Redmine
+  ///
   static Future<List<Projects>> getProjects(String apiKey, String baseUrl) async {
     List<Projects> allProjects = [];
     int offset = 0;

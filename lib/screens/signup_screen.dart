@@ -35,9 +35,8 @@ class _SignUpScreen extends State<SignUpScreen> {
     });
   }
 
-/**
- * @return к экрану с вводом пароля или панели пользователя
- * */
+/// @return к экрану с вводом пароля или панели пользователя
+///
   Future<void> signUp() async {
     final navigator = Navigator.of(context);
 
@@ -96,7 +95,7 @@ class _SignUpScreen extends State<SignUpScreen> {
             ),
 
             // Full name text field
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Form(
               key: formKey,
               child: Column(
@@ -104,7 +103,7 @@ class _SignUpScreen extends State<SignUpScreen> {
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: TextField(
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'ФИО',
                       prefixIcon: Icon(Icons.person),
                     ),
@@ -113,13 +112,13 @@ class _SignUpScreen extends State<SignUpScreen> {
                 ),
 
                 // Email text field
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: TextFormField(
                     keyboardType: TextInputType.emailAddress,
                     autocorrect: false,
-                    decoration: InputDecoration(
+                    decoration: const InputDecoration(
                       labelText: 'EMAIL',
                       prefixIcon: Icon(Icons.email),
                     ),
@@ -132,14 +131,14 @@ class _SignUpScreen extends State<SignUpScreen> {
                 ),
 
                 // Password text field
-                SizedBox(height: 20),
+                const SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 16),
                   child: TextFormField(
                     autocorrect: false,
                     decoration: InputDecoration(
                       labelText: 'Пароль',
-                      prefixIcon: Icon(Icons.lock),
+                      prefixIcon: const Icon(Icons.lock),
                       suffix: InkWell(
                         onTap: togglePasswordView,
                         child: Icon(
@@ -164,24 +163,24 @@ class _SignUpScreen extends State<SignUpScreen> {
 
 
             // Register button
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),
               child: Row(
                 children: [
                   IconButton(
-                    icon: Icon(Icons.arrow_back),
+                    icon: const Icon(Icons.arrow_back),
                     onPressed: () => Navigator.of(context).pop(),
                   ),
-                  SizedBox(width: 8), // Пространство между кнопками
+                  const SizedBox(width: 8), // Пространство между кнопками
                   ElevatedButton(
                     onPressed: () => signUp(),
-                    child: Text('Продолжить'),
                     style: ElevatedButton.styleFrom(
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(16),
                       ),
                     ),
+                    child: const Text('Продолжить'),
                   ),
                 ],
               ),

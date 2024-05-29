@@ -18,6 +18,7 @@ class PersonData extends CardData {
 
 class PersonWidget extends CardWidget {
   final PersonData personData;
+  @override
   final void Function()? onPressed;
 
   PersonWidget (this.onPressed, {
@@ -34,7 +35,7 @@ class PersonWidget extends CardWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color(0xFFB9C2D7),
+      color: const Color(0xFFB9C2D7),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
@@ -42,7 +43,7 @@ class PersonWidget extends CardWidget {
             leading: Image.asset('assets/icons/hr.png',width: 48,height: 48,),
             title: Text(
               personData.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -53,15 +54,15 @@ class PersonWidget extends CardWidget {
                 Text('ID: ${personData.id}'),
                 //Text('Роль:'),
                 Chip(
-                  label: Text(personData.role, style: TextStyle(color: Colors.white)),
+                  label: Text(personData.role, style: const TextStyle(color: Colors.white)),
                   backgroundColor: Colors.brown,
                 ),
               ],
             ),
             trailing: PopupMenuButton(
               itemBuilder: (context) => [
-                PopupMenuItem(child: Text('Профиль')),
-                PopupMenuItem(child: Text('Проекты')),
+                const PopupMenuItem(child: Text('Профиль')),
+                const PopupMenuItem(child: Text('Проекты')),
                 /// to-do нажатие на выбранные Задачи - выводит список задач только по выбранному проекту
               ],
             ),

@@ -74,21 +74,21 @@ class VacancScreen extends StatelessWidget {
 
   PreferredSizeWidget buildCustomAppBarWithActions() {
     return PreferredSize(
-      preferredSize: Size.fromHeight(kToolbarHeight),
+      preferredSize: const Size.fromHeight(kToolbarHeight),
       child: CustomScrollView(
         slivers: [
           SliverAppBar(
             toolbarHeight: kToolbarHeight,
             actions: [
               IconButton(
-                icon: Icon(Icons.add),
+                icon: const Icon(Icons.add),
                 onPressed: () {
                   // Заглушка для обработки нажатия на кнопку "Добавить"
                   print('Нажата кнопка "Добавить"');
                 },
               ),
               IconButton(
-                icon: Icon(Icons.search),
+                icon: const Icon(Icons.search),
                 onPressed: () {
                   // Заглушка для обработки нажатия на кнопку "Искать"
                   print('Нажата кнопка "Искать"');

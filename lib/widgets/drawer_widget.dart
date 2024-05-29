@@ -1,10 +1,11 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:recrutterapp/model/HH-RU/user.dart';
 import 'package:recrutterapp/screens/vacanc_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
   late final UserData userData = UserData(id: 'uidy1', name: 'Ярослава К', email:'example@mail.com' );
+
+  DrawerWidget({super.key});
 
 
   @override
@@ -20,24 +21,27 @@ class DrawerWidget extends StatelessWidget {
         padding: EdgeInsets.zero,
         children: <Widget>[
           DrawerHeader(
+            decoration: const BoxDecoration(
+              color: Color.fromRGBO(217, 146, 85, 100),
+            ),
             child: Row(
               children: [
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('${this.userData.name}',style: TextStyle(fontSize: 16)),
-                    Text('${this.userData.email}',style: TextStyle(fontSize: 12)),
+                    Text('${userData.name}',style: const TextStyle(fontSize: 16)),
+                    Text('${userData.email}',style: const TextStyle(fontSize: 12)),
                     // Text('Ярослава К', style: TextStyle(fontSize: 16)),
                     // Text('example@mail.com', style: TextStyle(fontSize: 12)),
-                    Text('Фехтование.Дизайн. Маркетинг.HR', style: TextStyle(fontSize: 12)),
+                    const Text('Фехтование.Дизайн. Маркетинг.HR', style: TextStyle(fontSize: 12)),
                   ],
                 ),
-                SizedBox(width: 10),
+                const SizedBox(width: 10),
                 Container(
                   width:50,
                   height: 50,
-                  decoration: BoxDecoration(
+                  decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(
                       image: AssetImage('assets/images/userlogo.jpg'),
@@ -48,47 +52,44 @@ class DrawerWidget extends StatelessWidget {
 
               ],
             ),
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(217, 146, 85, 100),
-            ),
           ),
           ListTile(
-            leading: Icon(Icons.admin_panel_settings),
-            title: Text('Панель'),
+            leading: const Icon(Icons.admin_panel_settings),
+            title: const Text('Панель'),
             onTap: ()=> Navigator.pushNamed(context,'/profile'),
           ),
           ListTile(
-            leading: Icon(Icons.work),
-            title: Text('Вакансии'),
+            leading: const Icon(Icons.work),
+            title: const Text('Вакансии'),
             onTap: ()=> Navigator.pushNamed(context,'/vac'),
           ),
           ListTile(
-            leading: Icon(Icons.person),
-            title: Text('Кандидаты'),
+            leading: const Icon(Icons.person),
+            title: const Text('Кандидаты'),
             onTap:  ()=> Navigator.pushNamed(context,'/candidates'),
           ),
           ListTile(
-            leading: Icon(Icons.analytics),
-            title: Text('Аналитика'),
+            leading: const Icon(Icons.analytics),
+            title: const Text('Аналитика'),
             onTap: () {
               // TODO: Обработчик нажатия на элемент "Аналитика"
             },
           ),
           ListTile(
-            leading: Icon(Icons.chat),
-            title: Text('Чаты'),
+            leading: const Icon(Icons.chat),
+            title: const Text('Чаты'),
             onTap: () {
               // TODO: Обработчик нажатия на элемент "Чаты"
             },
           ),
           ListTile(
-            leading: Icon(Icons.settings),
-            title: Text('Настройки'),
+            leading: const Icon(Icons.settings),
+            title: const Text('Настройки'),
             onTap: ()=> Navigator.pushNamed(context,'/settings'),
           ),
           ListTile(
-            leading: Icon(Icons.logout),
-            title: Text('Выход'),
+            leading: const Icon(Icons.logout),
+            title: const Text('Выход'),
             onTap: () => goToScreen(context,'/home')),
         ],
       ),

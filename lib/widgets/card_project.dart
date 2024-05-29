@@ -18,6 +18,7 @@ class ProjectData extends CardData {
 
 class ProjectWidget extends CardWidget {
   final ProjectData projectData;
+  @override
   final void Function()? onPressed;
 
   ProjectWidget (this.onPressed, {
@@ -34,15 +35,15 @@ class ProjectWidget extends CardWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      color: Color(0xFFB9C2D7),
+      color: const Color(0xFFB9C2D7),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           ListTile(
-            leading: FlutterLogo(),
+            leading: const FlutterLogo(),
             title: Text(
               projectData.title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
@@ -53,15 +54,15 @@ class ProjectWidget extends CardWidget {
                 Text('Start: ${projectData.startDate}'),
                 Text('End: ${projectData.endDate}'),
                 Chip(
-                  label: Text(projectData.title, style: TextStyle(color: Colors.white)),
+                  label: Text(projectData.title, style: const TextStyle(color: Colors.white)),
                   backgroundColor: Colors.brown,
                 ),
               ],
             ),
             trailing: PopupMenuButton(
               itemBuilder: (context) => [
-                PopupMenuItem(child: Text('О проекте')),
-                PopupMenuItem(child: Text('Задачи проекта')),
+                const PopupMenuItem(child: Text('О проекте')),
+                const PopupMenuItem(child: Text('Задачи проекта')),
                 /// to-do нажатие на выбранные Задачи - выводит список задач только по выбранному проекту
               ],
             ),

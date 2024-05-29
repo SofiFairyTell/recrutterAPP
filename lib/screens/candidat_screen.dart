@@ -4,8 +4,6 @@ import 'package:recrutterapp/widgets/card_person.dart';
 import '../widgets/drawer_widget.dart';
 
 import '../widgets/AppBarCustom.dart';
-import '../widgets/actions_button.dart';
-import '../model/Redmine/Person.dart';
 
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
@@ -15,7 +13,7 @@ List<PersonData> convertIssuesToProjectDataList(List<Person> person) {
       title: person.name,
       description: '',
       id: person.id,
-      icon:     Icon(Icons.cases),
+      icon:     const Icon(Icons.cases),
       role: person.roles,
     );
   }).toList();
@@ -25,7 +23,7 @@ class CandidatScreen extends StatelessWidget {
   //CandidatScreen({Key? key}) : super(key: key);
   final List<Person> Persons;
   final scaffoldKey = GlobalKey<ScaffoldState>();
-  CandidatScreen({required this.Persons});
+  CandidatScreen({super.key, required this.Persons});
 
 
 

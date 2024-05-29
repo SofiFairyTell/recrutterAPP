@@ -17,7 +17,7 @@ class HeadHunterApi{
 
     final cardsData = <Map<String, dynamic>>[];
 
-    items.forEach((data) {
+    for (var data in items) {
       final link = data['alternate_url'];
       final logo = data['employer']['logo_urls']?['90'];
       final company = data['employer']['name'];
@@ -31,7 +31,7 @@ class HeadHunterApi{
         'name': name,
         'city': city,
       });
-    });
+    }
 
     return cardsData;
   }

@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
       height: 150,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Color.fromRGBO(193, 200, 219, 100)
+          backgroundColor: const Color.fromRGBO(193, 200, 219, 100)
         ),
         onPressed: onPressed,
         child: Column(
@@ -28,7 +28,7 @@ class CustomButton extends StatelessWidget {
             Text(
               firstText,
               textAlign: TextAlign.left,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 20,
                 fontWeight: FontWeight.bold,
                 fontStyle: FontStyle.normal,
@@ -38,7 +38,7 @@ class CustomButton extends StatelessWidget {
             Text(
               secondText,
               textAlign: TextAlign.left,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 10,
                 fontWeight: FontWeight.normal,
                 fontStyle: FontStyle.normal,

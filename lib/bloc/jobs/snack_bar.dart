@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-/** Для сообщений об ошибок
- * */
+/// Для сообщений об ошибок
+///
 class SnackBarService {
   static const errorColor = Colors.red;
   static const okColor = Colors.green;

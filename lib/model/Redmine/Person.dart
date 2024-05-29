@@ -15,7 +15,7 @@ class Person {
 
   static List<Person> getUniquePeople(List<List<Person>> allPeopleInProjects) {
     // Создаем множество для отслеживания уникальных пользователей
-    Set<Person> uniquePeople = Set<Person>();
+    Set<Person> uniquePeople = <Person>{};
 
     // Итерируем по списку списков пользователей в проектах
     for (var peopleInProject in allPeopleInProjects) {

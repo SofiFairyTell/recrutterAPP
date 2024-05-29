@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:recrutterapp/bloc/jobs/firebase_stream.dart';
 import 'package:recrutterapp/screens/candidat_screen.dart';
 import 'package:recrutterapp/screens/modul_analysis/chart_screen.dart';
 import 'package:recrutterapp/screens/profile_screen.dart';
@@ -28,12 +27,12 @@ void main()  async {
       '/': (context) => const Main(),
       // '/home': (context) => const Main(),
       '/settings': (context) => SettingsScreen(),
-      '/signup': (context) =>  SignUpScreen(key: null,),
+      '/signup': (context) =>  const SignUpScreen(key: null,),
       '/profile': (context) =>  ProfileScreen(),
       '/vac':(context) => VacancScreen(key: null,),
-      '/candidates':(context) => CandidatScreen(Persons: [],),
+      '/candidates':(context) => CandidatScreen(Persons: const [],),
       '/chart':(context) => ChartScreen(),
-      '/projects':(context) => ProjectsScreen(projects: []),
+      '/projects':(context) => ProjectsScreen(projects: const []),
     },
   ));
 }

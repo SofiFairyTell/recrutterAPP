@@ -1,8 +1,7 @@
 import 'dart:ffi';
 
-/**
- * Информация о вакансии
- * */
+/// Информация о вакансии
+///
 class Vacancies
 {
   String? code;

@@ -14,7 +14,7 @@ class CardWidget extends StatelessWidget {
   final String? imageUrl;
   final void Function()? onPressed;
 
-  CardWidget({
+  const CardWidget({
     Key? key,
     required this.title,
     required this.description,
@@ -36,7 +36,7 @@ class CardWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
 
-      color: Color(0xFFB9C2D7),
+      color: const Color(0xFFB9C2D7),
       child: Column(
 
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -47,7 +47,7 @@ class CardWidget extends StatelessWidget {
             padding: const EdgeInsets.all(8.0),
             child: Text(
               title,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.bold,
               ),
