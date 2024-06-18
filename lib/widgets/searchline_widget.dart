@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:recrutterapp/widgets/selectioncriter_widget.dart';
+import 'package:recrutterapp/widgets/recommendationtable_widget.dart';
 import 'package:recrutterapp/widgets/criteriontable_widget.dart';
 
 class SearchWidget extends StatelessWidget {
