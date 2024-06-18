@@ -15,9 +15,21 @@ class SelectionScreen extends StatefulWidget {
 class _SelectionScreenState extends State<SelectionScreen >{
   bool _isVisible = false;
 
-  void _updateVisibility(bool isVisible) {
+  void _updateVisibility(isVisible) {
     setState(() {
-      _isVisible = isVisible;
+      _isVisible = !_isVisible;
+    });
+  }
+
+  void _showTable() {
+    setState(() {
+      _isVisible = true;
+    });
+  }
+
+  void _hideTable() {
+    setState(() {
+      _isVisible = false;
     });
   }
   final scaffoldKey = GlobalKey<ScaffoldState>();
@@ -34,7 +46,7 @@ class _SelectionScreenState extends State<SelectionScreen >{
           child: Column(
             children: [
               SearchWidget(onVisibilityChanged: _updateVisibility),
-              CriterionTable()
+              CriterionTable(isShow: _isVisible,)
             ],
           ),
         ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 
 class ProjectTable extends StatefulWidget {
 
-
   @override
   _ProjectTableState createState() => _ProjectTableState();
 }

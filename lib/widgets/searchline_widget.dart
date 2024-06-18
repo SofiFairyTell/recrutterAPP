@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:recrutterapp/widgets/selectioncriter_widget.dart';
 import 'package:recrutterapp/widgets/criteriontable_widget.dart';
-import 'package:recrutterapp/widgets/test.dart';
 
 class SearchWidget extends StatelessWidget {
   final Function(bool) onVisibilityChanged;
+  // final Function() onShowTable;
+  // final Function() onHideTable;
 
   SearchWidget({required this.onVisibilityChanged});
 
   final TextEditingController _controller = TextEditingController();
 
-    @override
+  @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -31,7 +32,6 @@ class SearchWidget extends StatelessWidget {
               onVisibilityChanged(true);
             },
             child: Text('Поиск'),
-
           ),
 
         ],
