@@ -4,10 +4,12 @@ import 'package:recrutterapp/widgets/criteriontable_widget.dart';
 
 class SearchWidget extends StatelessWidget {
   final Function(bool) onVisibilityChanged;
+
+  final String searchTitle;
   // final Function() onShowTable;
   // final Function() onHideTable;
 
-  SearchWidget({required this.onVisibilityChanged});
+  SearchWidget({required this.onVisibilityChanged, required this.searchTitle});
 
   final TextEditingController _controller = TextEditingController();
 
@@ -21,7 +23,7 @@ class SearchWidget extends StatelessWidget {
             child: TextField(
               controller: _controller,
               decoration: InputDecoration(
-                labelText: 'Введите название проекта',
+                labelText: searchTitle,
                 border: OutlineInputBorder(),
               ),
             ),

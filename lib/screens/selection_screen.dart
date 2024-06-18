@@ -9,6 +9,10 @@ import '../widgets/criteriontable_widget.dart';
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
 class SelectionScreen extends StatefulWidget {
+  final String projectTitle;
+
+  SelectionScreen({super.key, required this.projectTitle});
+
   @override
   _SelectionScreenState createState() => _SelectionScreenState();
 }
@@ -21,17 +25,6 @@ class _SelectionScreenState extends State<SelectionScreen >{
     });
   }
 
-  void _showTable() {
-    setState(() {
-      _isVisible = true;
-    });
-  }
-
-  void _hideTable() {
-    setState(() {
-      _isVisible = false;
-    });
-  }
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -45,7 +38,7 @@ class _SelectionScreenState extends State<SelectionScreen >{
         child: SingleChildScrollView(
           child: Column(
             children: [
-              SearchWidget(onVisibilityChanged: _updateVisibility),
+              SearchWidget(searchTitle:widget.projectTitle, onVisibilityChanged: _updateVisibility),
               CriterionTable(isShow: _isVisible,)
             ],
           ),

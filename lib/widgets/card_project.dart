@@ -66,7 +66,7 @@ class ProjectWidget extends CardWidget {
                 if (result == 'selection') {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => SelectionScreen()),
+                    MaterialPageRoute(builder: (context) => SelectionScreen(projectTitle: projectData.title,)),
                   );
                 }
               },

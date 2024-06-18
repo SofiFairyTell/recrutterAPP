@@ -11,8 +11,9 @@ class CriterionTable extends StatefulWidget {
 
 class _CriterionTableState  extends State<CriterionTable> {
   final List<Map<String, dynamic>> _data = [
-    {'name': 'Критерий 1', 'selected': false},
-    {'name': 'Критерий 2', 'selected': false},
+    {'name': 'К1' ,'score':'0.3427' , 'selected': false},
+    {'name': 'К2', 'score':'0.2983' , 'selected': false},
+    {'name': 'К3', 'score':'0.1732' , 'selected': false},
   ];
 
   @override
@@ -25,12 +26,14 @@ class _CriterionTableState  extends State<CriterionTable> {
       child: DataTable(
         columns: [
           DataColumn(label: Text('Критерий')),
+          DataColumn(label: Text('Оценка')),
           DataColumn(label: Text('Выбрать')),
         ],
         rows: _data.map((item) {
           return DataRow(
             cells: [
               DataCell(Text(item['name'])),
+              DataCell(Text(item['score'])),
               DataCell(
                 Checkbox(
                   value: item['selected'],
