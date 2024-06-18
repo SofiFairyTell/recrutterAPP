@@ -30,8 +30,8 @@ class DrawerWidget extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text('${userData.name}',style: const TextStyle(fontSize: 16)),
-                    Text('${userData.email}',style: const TextStyle(fontSize: 12)),
+                    Text('${userData.name}',style: const TextStyle(fontSize: 12)),
+                    Text('${userData.email}',style: const TextStyle(fontSize: 10)),
                     // Text('Ярослава К', style: TextStyle(fontSize: 16)),
                     // Text('example@mail.com', style: TextStyle(fontSize: 12)),
                     const Text('Фехтование.Дизайн. Маркетинг.HR', style: TextStyle(fontSize: 12)),

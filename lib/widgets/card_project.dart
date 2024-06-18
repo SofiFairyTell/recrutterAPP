@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:recrutterapp/screens/candidat_screen.dart';
+import 'package:recrutterapp/screens/selection_screen.dart';
 import 'package:recrutterapp/widgets/card_widget.dart';
 
 
@@ -59,10 +61,19 @@ class ProjectWidget extends CardWidget {
                 ),
               ],
             ),
-            trailing: PopupMenuButton(
+            trailing: PopupMenuButton<String>(
+              onSelected: (String result) {
+                if (result == 'selection') {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => SelectionScreen()),
+                  );
+                }
+              },
               itemBuilder: (context) => [
                 const PopupMenuItem(child: Text('О проекте')),
                 const PopupMenuItem(child: Text('Задачи проекта')),
+                const PopupMenuItem(value:'selection',child: Text('Подобрать кандидата')),
                 /// to-do нажатие на выбранные Задачи - выводит список задач только по выбранному проекту
               ],
             ),
