@@ -4,11 +4,22 @@ import '../model/Redmine/Projects.dart';
 import '../widgets/card_project.dart';
 import '../widgets/drawer_widget.dart';
 import '../widgets/searchline_widget.dart';
+import '../widgets/criteriontable_widget.dart';
+import '../widgets/criteriontable_widget.dart';
 final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
+class SelectionScreen extends StatefulWidget {
+  @override
+  _SelectionScreenState createState() => _SelectionScreenState();
+}
+class _SelectionScreenState extends State<SelectionScreen >{
+  bool _isVisible = false;
 
-class SelectionScreen extends StatelessWidget {
-
+  void _updateVisibility(bool isVisible) {
+    setState(() {
+      _isVisible = isVisible;
+    });
+  }
   final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -22,7 +33,8 @@ class SelectionScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              ProjectSearchWidget()
+              SearchWidget(onVisibilityChanged: _updateVisibility),
+              CriterionTable()
             ],
           ),
         ),
@@ -30,5 +42,10 @@ class SelectionScreen extends StatelessWidget {
       drawer: DrawerWidget(),
     );
   }
+
+
+
 }
+
+
 

@@ -39,8 +39,8 @@ class DrawerWidget extends StatelessWidget {
                 ),
                 const SizedBox(width: 10),
                 Container(
-                  width:50,
-                  height: 50,
+                  width:45,
+                  height: 45,
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
                     image: DecorationImage(

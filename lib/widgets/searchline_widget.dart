@@ -1,26 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:recrutterapp/widgets/selectioncriter_widget.dart';
+import 'package:recrutterapp/widgets/criteriontable_widget.dart';
+import 'package:recrutterapp/widgets/test.dart';
 
-class ProjectSearchWidget extends StatefulWidget {
-  @override
-  _ProjectSearchWidgetState createState() => _ProjectSearchWidgetState();
-}
+class SearchWidget extends StatelessWidget {
+  final Function(bool) onVisibilityChanged;
 
-class _ProjectSearchWidgetState extends State<ProjectSearchWidget> {
+  SearchWidget({required this.onVisibilityChanged});
+
   final TextEditingController _controller = TextEditingController();
 
-  void _searchProject() {
-    String projectName = _controller.text;
-    // Здесь вы можете добавить код для поиска проекта
-    print('Ищем проект: $projectName');
-    // Для примера выведем текст в SnackBar
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text('Ищем проект: $projectName'),
-      ),
-    );
-  }
-
-  @override
+    @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.all(16.0),
@@ -37,9 +27,13 @@ class _ProjectSearchWidgetState extends State<ProjectSearchWidget> {
           ),
           SizedBox(width: 10),
           ElevatedButton(
-            onPressed: _searchProject,
+            onPressed: () {
+              onVisibilityChanged(true);
+            },
             child: Text('Поиск'),
+
           ),
+
         ],
       ),
     );
