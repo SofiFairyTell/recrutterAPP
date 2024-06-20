@@ -26,7 +26,7 @@ class _SelectionScreenState extends State<SelectionScreen >{
       _isVisible = !_isVisible;
     });
   }
-  void _showVisibility(isVisible) {
+  void _showVisibility(isShow) {
     setState(() {
       _isShow = !_isShow;
     });
@@ -48,12 +48,19 @@ class _SelectionScreenState extends State<SelectionScreen >{
               CriterionTable(isShow: _isVisible,),
               ElevatedButton(
                 onPressed: () {
-                  _showVisibility;
-
+                  setState(() {
+                    _isShow = !_isShow;
+                  });
                 },
                 child: Text('Подобрать'),
               ),
-              RecommendationTable(isShow:_isVisible)
+
+              RecommendationTable(isShow:_isShow),
+              ElevatedButton(
+                onPressed: () {
+                },
+                child: Text('Отправить на согласование'),
+              ),
             ],
           ),
         ),
